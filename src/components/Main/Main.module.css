@@ -1,0 +1,10 @@
+.main{
+	grid-area: main;
+	width: 1920px;
+	margin: 0 auto;
+}
+
+.wrapper{
+	width: 1180px;
+	margin: 0 auto;
+}
