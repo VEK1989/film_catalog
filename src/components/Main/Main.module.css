@@ -1,10 +1,19 @@
-.main{
-	grid-area: main;
-	width: 1920px;
-	margin: 0 auto;
+.links{
+	margin: 40px 0 40px 0;
 }
 
-.wrapper{
-	width: 1180px;
-	margin: 0 auto;
+.link{
+	text-decoration: none;
+	font-family: Play;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 21px;
+	color: #E0DBDB;
+	margin: 5px 70px 5px 5px;
+}
+
+.active{
+	color: #503131;
+	font-weight: bold;
 }

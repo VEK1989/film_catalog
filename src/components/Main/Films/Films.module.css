@@ -1,0 +1,28 @@
+.content{
+	grid-area: main;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0;
+}
+
+.filmItem{
+	width: 250px;
+	height: 380px;
+	margin: 5px;
+}
+
+.title{
+	display: block;
+	font-family: Play;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 21px;
+	color: #503131;
+}
+
+.paginations{
+	display: flex;
+	flex-wrap: wrap;
+}
