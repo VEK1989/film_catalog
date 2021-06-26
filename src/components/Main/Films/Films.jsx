@@ -1,7 +1,8 @@
 import style from './Films.module.css';
 import React from 'react';
 import * as axios from 'axios';
-import altImg from '../../../assets/images/altTitle.png'
+import Film from './Film/Film';
+import Pagination from '../../Commons/Pagination/Pagination';
 
 class Films extends React.Component {
 	componentDidMount() {
@@ -21,27 +22,17 @@ class Films extends React.Component {
 	}
 
 	render() {
-		let pagesCount = Math.ceil(this.props.totalResults / this.props.pageSize)
-
-		let pages = []
-		for (let i = 1; i <= pagesCount; i++) {
-			pages.push(i)
-		}
-
 		return (
-			<section className={style.content}>
-				{
-					this.props.items.map(item => {
-						return <div key={item.id} className={style.filmItem}>
-							<img src={item.poster_path !== null ? ('https://www.themoviedb.org/t/p/original' + item.poster_path) : altImg} alt="#" width="250px" height="330px" />
-							<span className={style.title}>{item.title}</span>
-						</div>
-					})
-				}
-				<div className={style.paginations}>
-					{pages.map(p => {
-						return <span key={p.id} onClick={(e) => { this.getChangePage(p) }} >{p}</span>
-					})}
+			<section className={style.filmPage}>
+				<div className={style.content} >
+					{
+						this.props.items.map(item => {
+							return <Film key={item.id} poster_path={item.poster_path} title={item.title} />
+						})
+					}
+				</div>
+				<div className={style.paginator}>
+					<Pagination {...this.props} getChangePage={this.getChangePage} />
 				</div>
 			</section>
 		);

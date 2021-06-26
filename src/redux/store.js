@@ -1,9 +1,9 @@
 import { combineReducers, createStore } from "redux";
-import filmReduser from "./film-reduser";
+import filmsReduser from "./films-reduser";
 
 
 let redusers = combineReducers({
-	film: filmReduser
+	films: filmsReduser
 })
 
 let store = createStore(redusers)

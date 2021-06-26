@@ -6,10 +6,10 @@ let initialState = {
 	items: [],
 	pageSize: 20,
 	totalResults: 100,
-	page: 2
+	page: 1
 }
 
-const filmReduser = (state = initialState, action) => {
+const filmsReduser = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_ITEMS:
 			return {
@@ -35,4 +35,4 @@ export const setItems = (items) => ({ type: SET_ITEMS, items })
 export const setPage = (page) => ({ type: SET_PAGE, page })
 export const setTotalResults = (totalResults) => ({ type: SET_TOTAL_RESULTS, totalResults })
 
-export default filmReduser;
+export default filmsReduser;
