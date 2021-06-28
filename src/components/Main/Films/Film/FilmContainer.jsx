@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import * as axios from 'axios';
 import Film from './Film';
 import { connect } from 'react-redux';
-import { setCover, setProperties } from '../../../../redux/film-reduser';
+import { setCover, setProperties, setCoverItem } from '../../../../redux/film-reduser';
 
 const FilmContainer = (props) => {
 
@@ -20,6 +20,7 @@ const FilmContainer = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
+                coverItem: state.film.coverItem,
 		cover: state.film.cover,
 		properties: state.film.properties
 	}
@@ -27,6 +28,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
+                setCoverItem: (cover, id) => {
+                        dispatch (setCoverItem (cover, id)
+                },
 		setCover: (cover) => {
 			dispatch(setCover(cover))
 		},
