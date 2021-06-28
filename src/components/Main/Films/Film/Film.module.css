@@ -1,5 +1,8 @@
 .filmInfo{
-	display: none;
+	width: 250px;
+	height: 380px;
+	background-color: rgba(0, 0, 0, 0.6);
+	margin: 5px;
 }
 
 .filmItem{

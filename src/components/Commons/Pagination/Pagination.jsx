@@ -30,7 +30,7 @@ const Pagination = (props) => {
 				pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
 					.map(p => {
 						return <span className={cn({ [style.selectedPage]: props.page === p }, style.pageNumber)}
-							key={p} onClick={(e) => { props.getChangePage(p) }} >{p}</span>
+							key={p} onClick={(e) => { props.setPage(p) }} >{p}</span>
 					})
 			}
 			{
