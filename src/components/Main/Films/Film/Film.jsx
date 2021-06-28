@@ -1,15 +1,23 @@
 import style from './Film.module.css';
 import altImg from '../../../../assets/images/altTitle.png';
+import { NavLink } from 'react-router-dom';
 
 const Film = (props) => {
 	return (
-		<div onMouseOver={() => props.setCover(false)} onMouseOut={() => props.setCover(true)}>
+		<div onMouseOver={() =>
+                       return (
+                           props.setCoverItem.some(i => i === props.id) 
+                           props.setCover(false, props.id)
+                       )} 
+                     onMouseOut={() => props.setCover(true)}>
 			{!props.cover &&
-				<div className={style.filmInfo}>
-					<p>{props.properties.genres.name}/{props.properties.genres.name}</p>
-					<p>{props.properties.release_date}</p>
-					<p>{props.properties.runtime} min</p>
-				</div>
+                                <Navlink to='/films/${props.id}'>
+				    <div className={style.filmInfo}>
+					    <p>{props.properties.genres.name}/{props.properties.genres.name}</p>
+					    <p>{props.properties.release_date}</p>
+					    <p>{props.properties.runtime} min</p>
+				    </div>
+                                </Navlink>
 			}
 			{props.cover &&
 				<div className={style.filmItem} >
