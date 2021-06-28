@@ -1,7 +1,9 @@
 const SET_COVER = 'SET_COVER'
 const SET_PROPERTIES = 'SET_PROPERTIES'
+const SET_COVER_ITEM = 'SET_COVER_ITEM'
 
 let initialState = {
+        coverItem: [],
 	cover: true,
 	properties: {
 		release_date: 2020,
@@ -34,6 +36,12 @@ const filmReduser = (state = initialState, action) => {
 			return {
 				...state, cover: action.cover
 			}
+                case SET_COVER_ITEM: 
+                        return {
+                                ...state, coverItem: action.cover ? 
+                                [...state.coverItem, action.id]
+                                : state.coverItem.filter(id => id != action.id
+                        }
 
 		case SET_PROPERTIES:
 			return {
@@ -47,7 +55,8 @@ const filmReduser = (state = initialState, action) => {
 	}
 }
 
-export const setCover = (cover) => ({ type: SET_COVER, cover })
+export const setCover = (cover, id) => ({ type: SET_COVER, cover, id })
 export const setProperties = (properties) => ({ type: SET_PROPERTIES, properties })
+export const setCoverItem = (cover, id) => ({ type: SET_COVER_ITEM, cover, id})
 
 export default filmReduser;
