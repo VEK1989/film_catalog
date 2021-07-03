@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
@@ -9,8 +9,11 @@ function App() {
     <BrowserRouter>
       <div className="body">
         <Header />
-        <Route path='/films' render={() => <Main />} />
-        <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
+        <Switch>
+          <Redirect exact from='/' to='/films' />
+          <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
+          <Route path='/' render={() => <Main />} />
+        </Switch>
       </div>
     </BrowserRouter>
   )

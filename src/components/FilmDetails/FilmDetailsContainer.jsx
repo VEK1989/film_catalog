@@ -4,35 +4,38 @@ import FilmDetails from "./FilmDetails";
 import { useEffect, useState } from "react";
 import { getFilmData } from '../../api/api';
 
+
 const FilmDetailsContainer = (props) => {
-	const [data, setData] = useState()
+	const [filmData, setFilmData] = useState({
+		poster_path: "",
+		original_title: "",
+		overview: "",
+		release_date: "",
+		runtime: 95,
+		vote_average: 2.2,
+		genres: [
+			{
+				id: 16,
+				name: "Animation"
+			}
+		]
+	})
 
 	let filmId = props.match.params.filmId
 
 	useEffect(() => {
 		getFilmData(filmId).then(data => {
-			debugger
-			setData(data)
+			setFilmData(data)
 		})
-	}, [])
+	})
 
 	return (
 		<div>
-			<FilmDetails data={data} />
+			<FilmDetails data={filmData} />
 		</div>
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-	}
-}
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-	}
-}
-
 let withRouterComponent = withRouter(FilmDetailsContainer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouterComponent);
+export default connect()(withRouterComponent);

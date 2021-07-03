@@ -1,28 +1,38 @@
 import style from './FilmDetails.module.css';
 import { NavLink } from 'react-router-dom';
 import altImg from '../../assets/images/altTitle.png';
+import left from '../../assets/images/left.png';
+import StarsRating from '../Commons/StarsRating/StarsRating';
 
 const FilmDetails = (props) => {
 	return (
 		<div className={style.container}>
 			<div className={style.header}>
-				<NavLink to="/films">
-					<span>Back</span>
+				<NavLink to="/films" className={style.back} >
+					<span className={style.back}><img src={left} alt="left" width="12px" height="12px" />  Back</span>
 				</NavLink>
 			</div>
 			<img src={props.data.poster_path ? (`https://www.themoviedb.org/t/p/original${props.data.poster_path}`) : altImg} alt="poster" width="380px" height="573px" className={style.poster} />
 			<span className={style.name}>{props.data.title}</span>
+			<div className={style.rating}><StarsRating rating={props.data.vote_average} id={props.data.id} /></div>
 			<div className={style.props}>
 				<span className={style.props_name}>Genre:</span>
 				<span className={style.props_name}>Year:</span>
 				<span className={style.props_name}>Running time:</span>
 			</div>
 			<div className={style.value}>
-				<span className={style.value_name}></span>
-				<span className={style.value_name}></span>
-				<span className={style.value_name}>minutes</span>
+				<span className={style.value_name}>
+					{
+						(props.data.genres.length > 1) ? <span>{props.data.genres[0].name}/{props.data.genres[1].name}</span>
+							: <span>{props.data.genres[0].name}</span>
+					}
+				</span>
+				<span className={style.value_name}>
+					{props.data.release_date}
+				</span>
+				<span className={style.value_name}>{props.data.runtime}minutes</span>
 			</div>
-			<span className={style.descriotion}></span>
+			<span className={style.descriotion}>{props.data.overview}</span>
 			<div className={style.like}>
 				<img src="" alt="like" />
 			</div>

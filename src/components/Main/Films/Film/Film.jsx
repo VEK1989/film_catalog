@@ -1,6 +1,7 @@
 import style from './Film.module.css';
 import altImg from '../../../../assets/images/altTitle.png';
 import { NavLink } from 'react-router-dom';
+import star from '../../../../assets/images/star.png';
 
 const Film = (props) => {
 	return (
@@ -9,12 +10,18 @@ const Film = (props) => {
 				<div className={style.filmItem}>
 					<NavLink to={`/film/${props.id}`}>
 						<div className={style.filmInfo}>
-							{
-								(props.properties.genres.length > 1) ? <p>{props.properties.genres[0].name}/{props.properties.genres[1].name}</p>
-									: <p>{props.properties.genres[0].name}</p>
-							}
-							<p>{props.properties.release_date}</p>
-							<p>{props.properties.runtime} min</p>
+							<div className={style.like}>&#10084;</div>
+							<div className={style.info}>
+								<div>
+									{
+										(props.properties.genres.length > 1) ? <span>{props.properties.genres[0].name}/{props.properties.genres[1].name}</span>
+											: <span>{props.properties.genres[0].name}</span>
+									}
+									<div>{props.properties.release_date}</div>
+									<div>{props.properties.runtime} min</div>
+								</div>
+							</div>
+							<div className={style.rating}>{props.properties.vote_average} <img src={star} alt="star" width="14px" height="14px" /></div>
 						</div>
 					</NavLink>
 					<span className={style.title}>{props.title}</span>

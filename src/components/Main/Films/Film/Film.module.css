@@ -1,9 +1,17 @@
 .filmInfo{
 	margin: 0;
-	width: 100%;
+	width: 250px;
 	height: 330px;
 	background-color: rgba(0, 0, 0, 0.6);
 	border: 1px solid #fff;
+	display: grid;
+	grid-template-columns: auto 50px;
+	grid-template-rows: 30px auto 50px 20px;
+	grid-template-areas: 
+		"like like"
+		". ."
+		"info ."
+		"info rating";
 }
 
 .filmItem{
@@ -12,6 +20,20 @@
 	margin: 5px;
 	border: 1px solid #fff;
 }
+
+.like{
+	grid-area: like;
+	text-decoration: none;
+}
+
+.info{
+	grid-area: info;
+}
+
+.rating{
+	grid-area: rating;
+}
+
 .title{
 	display: block;
 	font-style: normal;

@@ -1,32 +1,57 @@
 .container{
+	padding: 5px 5px 50px 5px;
 	display: grid;
-	grid-template-columns: 380px 130px 220px auto 35px;
+	grid-template-columns: 400px 180px 220px auto 35px;
 	grid-template-rows: 99px 68px 25px 0,5fr 190px;
 	grid-template-areas: 
 		'header header header header header'
 		'poster name name . like'
-		'poster props value . like'
 		'poster rating rating . like'
+		'poster props value . like'
 		'poster descriotion descriotion descriotion descriotion';
+}
+
+.back{
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	color: #503131;
 }
 
 .header{
 	grid-area: header;
+	padding: 20px 5px 20px;
 }
 
 .poster{
 	grid-area: poster;
+	margin: 0 20px 0 0;
 }
 
 .name{
 	grid-area: name;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 34px;
+	letter-spacing: 0.5px;
+}
+
+.rating{
+	grid-area: rating;
+	display: flex;
+	justify-content: left;
 }
 
 .props{
 	grid-area: props;
+	margin: 0;
 }
 
 .props_name{
+	margin: 0 0 15px;
 	display: block;
 	font-style: normal;
 	font-weight: bold;
@@ -36,9 +61,11 @@
 
 .value{
 	grid-area: value;
+	margin: 0;
 }
 
 .value_name{
+	margin: 0 0 15px;
 	display: block;
 	font-style: normal;
 	font-weight: normal;
@@ -48,6 +75,10 @@
 
 .descriotion{
 	grid-area: descriotion;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 31px;
 }
 
 .like{
