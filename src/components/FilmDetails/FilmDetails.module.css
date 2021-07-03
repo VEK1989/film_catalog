@@ -1,0 +1,55 @@
+.container{
+	display: grid;
+	grid-template-columns: 380px 130px 220px auto 35px;
+	grid-template-rows: 99px 68px 25px 0,5fr 190px;
+	grid-template-areas: 
+		'header header header header header'
+		'poster name name . like'
+		'poster props value . like'
+		'poster rating rating . like'
+		'poster descriotion descriotion descriotion descriotion';
+}
+
+.header{
+	grid-area: header;
+}
+
+.poster{
+	grid-area: poster;
+}
+
+.name{
+	grid-area: name;
+}
+
+.props{
+	grid-area: props;
+}
+
+.props_name{
+	display: block;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 21px;
+}
+
+.value{
+	grid-area: value;
+}
+
+.value_name{
+	display: block;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 21px;
+}
+
+.descriotion{
+	grid-area: descriotion;
+}
+
+.like{
+	grid-area: like;
+}

@@ -1,8 +1,6 @@
 import style from './Films.module.css';
 import Pagination from '../../Commons/Pagination/Pagination';
 import Film from './Film/Film';
-import { useEffect } from 'react';
-import * as axios from 'axios';
 
 const Films = (props) => {
 	const isHovered = (selected, id) => {

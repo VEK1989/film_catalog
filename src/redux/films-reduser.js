@@ -13,7 +13,10 @@ let initialState = {
 	totalResults: 100,
 	page: 1,
 	properties: {
-		release_date: 2020,
+		poster_path: "",
+		original_title: "",
+		overview: "",
+		release_date: "",
 		runtime: 95,
 		vote_average: 2.2,
 		genres: [

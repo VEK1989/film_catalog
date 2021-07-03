@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
       <div className="body">
         <Header />
-        <Route path='/' render={() => <Main />} />
-        <Route path='/films/:filmId?' render={() => <FilmDetailsContainer />} />
+        <Route path='/films' render={() => <Main />} />
+        <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
       </div>
     </BrowserRouter>
   )
