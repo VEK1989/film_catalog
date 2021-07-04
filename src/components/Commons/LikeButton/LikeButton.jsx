@@ -3,21 +3,25 @@ import style from './LikeButton.module.css';
 import cn from 'classnames';
 
 const LikeButton = (props) => {
-	const [like, setLike] = useState(false);
-	const localLike = window.localStorage.getItem(`${props.id}-like`)
+	const [like, setLike] = useState(window.localStorage.getItem(`${props.id}-like`) || 'unLike');
 
-	useEffect(() => {
-		localLike && setLike(localLike)
-	}, [localLike])
-
-	const handleOnClick = () => {
-		like ? setLike(false)
-			: setLike(true)
-		window.localStorage.setItem(`${props.id}-like`, like)
+	const toggleLike = () => {
+		if (like === 'unLike') {
+			window.localStorage.setItem(`${props.id}-like`, 'like')
+			setLike('like')
+		} else {
+			window.localStorage.setItem(`${props.id}-like`, 'unLike')
+			setLike('unLike')
+		}
 	};
 
+	useEffect(() => {
+		const localLike = window.localStorage.getItem(`${props.id}-like`)
+		localLike && setLike(localLike)
+	}, [props.id])
+
 	return (
-		<div className={cn(style.like, { [style.active]: like === true })} onClick={handleOnClick}>&#10084;</div>
+		<div className={cn(style.like, { [style.active]: like === 'like' })} onClick={toggleLike}>&#10084;</div>
 	);
 };
 

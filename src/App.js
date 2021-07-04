@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import FilmDetailsContainer from './components/FilmDetails/FilmDetailsContainer';
+import SearchPage from './components/Header/Search/SearchPage/SearchPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Redirect exact from='/' to='/films' />
           <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
+          <Route path='/search' render={() => <SearchPage />} />
           <Route path='/' render={() => <Main />} />
         </Switch>
       </div>

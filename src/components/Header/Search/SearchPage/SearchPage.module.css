@@ -1,0 +1,14 @@
+.header{
+	margin: 10px 0;
+	padding: 5px;
+}
+
+.back{
+	cursor: pointer;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	color: #503131;
+}
