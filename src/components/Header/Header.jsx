@@ -2,8 +2,10 @@ import style from './Header.module.css';
 import icon from '../../assets/images/header-icon.png';
 import Search from './Search/Search';
 import Switcher from './Switcher/Switcher';
+import { getSerchFilm } from '../../api/api'
+import { useEffect } from 'react';
 
-const Header = () => {
+const Header = (props) => {
 	return (
 		<div className={style.header}>
 			<div className={style.wrapper}>

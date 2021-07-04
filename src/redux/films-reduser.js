@@ -6,7 +6,7 @@ const SET_HOVER = 'SET_HOVER'
 const SET_FILM_ID = 'SET_FILM_ID'
 
 let initialState = {
-	filmId: [],
+	filmId: [508943],
 	hover: false,
 	items: [],
 	pageSize: 20,

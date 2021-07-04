@@ -7,4 +7,4 @@ let redusers = combineReducers({
 
 let store = createStore(redusers)
 
-export default store
+export default store;

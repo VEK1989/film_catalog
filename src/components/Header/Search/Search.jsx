@@ -1,13 +1,41 @@
-import style from './Search.module.css'
-import searchImg from '../../../assets/images/header-search.png'
+import style from './Search.module.css';
+import searchImg from '../../../assets/images/header-search.png';
+import { Formik, Form, Field } from 'formik';
+import { useState, useEffect } from 'react';
+import { getSerchFilm } from '../../../api/api';
 
-const Search = () => {
+const Search = (props) => {
+	const [term, setTerm] = useState('')
+
+	const submit = (values, { setSubmitting }) => {
+		setTerm(values.term)
+		setSubmitting(false)
+	}
+
+	useEffect(() => {
+		getSerchFilm(term).then(data => {
+			console.log(data)
+		})
+	}, [term])
+
 	return (
-		<div className={style.input}>
-			<input type="text" className={style.input_area} placeholder="Search" />
-			<span><img src={searchImg} alt="search" width="14px" height="14px" /></span>
-		</div>
+		<Formik
+			initialValues={{ term: '' }}
+			onSubmit={submit}
+		>
+			{({ isSubmitting }) => (
+				<Form>
+					<div className={style.input}>
+						<Field type="text" name="term" className={style.input_area} />
+						<button type="submit" disabled={isSubmitting} className={style.button}>
+							<img src={searchImg} alt="search" width="16px" height="16px" />
+						</button>
+					</div>
+				</Form>
+			)}
+		</Formik>
 	);
 };
+
 
 export default Search;

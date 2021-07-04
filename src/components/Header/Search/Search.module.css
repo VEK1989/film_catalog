@@ -16,3 +16,11 @@
     outline: none;
     outline-offset: 0;
 }
+
+.button{
+	cursor: pointer;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+}
