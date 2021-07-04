@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import style from './Pagination.module.css';
-import cn from 'classnames'
+import cn from 'classnames';
 
 const Pagination = (props) => {
 	let portionSize = 5

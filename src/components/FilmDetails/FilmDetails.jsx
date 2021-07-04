@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import altImg from '../../assets/images/altTitle.png';
 import left from '../../assets/images/left.png';
 import StarsRating from '../Commons/StarsRating/StarsRating';
+import LikeButton from '../Commons/LikeButton/LikeButton';
 
 const FilmDetails = (props) => {
 	return (
@@ -28,13 +29,13 @@ const FilmDetails = (props) => {
 					}
 				</span>
 				<span className={style.value_name}>
-					{props.data.release_date}
+					{props.data.release_date.split(['-'])[0]}
 				</span>
 				<span className={style.value_name}>{props.data.runtime}minutes</span>
 			</div>
 			<span className={style.descriotion}>{props.data.overview}</span>
 			<div className={style.like}>
-				<img src="" alt="like" />
+				<LikeButton id={props.data.id} />
 			</div>
 		</div>
 	);

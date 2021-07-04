@@ -6,12 +6,18 @@
 	border: 1px solid #fff;
 	display: grid;
 	grid-template-columns: auto 50px;
-	grid-template-rows: 30px auto 50px 20px;
+	grid-template-rows: auto 80px;
 	grid-template-areas: 
-		"like like"
 		". ."
-		"info ."
 		"info rating";
+	position: relative;
+}
+
+.like{
+	margin: 0;
+	z-index: 10;
+	right: 25px;
+	height: 10px;
 }
 
 .filmItem{
@@ -21,17 +27,23 @@
 	border: 1px solid #fff;
 }
 
-.like{
-	grid-area: like;
+.link{
 	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 21px;
+	color: #FFFFFF;
 }
 
 .info{
 	grid-area: info;
+	margin: 0 0 0 10px;
 }
 
 .rating{
 	grid-area: rating;
+	margin: 42px 0 0 0;
 }
 
 .title{

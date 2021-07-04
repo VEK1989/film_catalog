@@ -27,7 +27,7 @@ const FilmDetailsContainer = (props) => {
 		getFilmData(filmId).then(data => {
 			setFilmData(data)
 		})
-	})
+	}, [filmId])
 
 	return (
 		<div>
