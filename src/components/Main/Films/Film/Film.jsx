@@ -1,5 +1,6 @@
 import style from './Film.module.css';
 import altImg from '../../../../assets/images/altTitle.svg';
+import altImgDark from '../../../../assets/images/altPhotoDark.png';
 import { NavLink } from 'react-router-dom';
 import star from '../../../../assets/images/star.png';
 import LikeButton from '../../../Commons/LikeButton/LikeButton';
@@ -33,7 +34,7 @@ const Film = (props) => {
 						props.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt="#" width="250px" height="330px" />
 							: <div className={style.fuckYou}>
 								<div>
-									<img src={altImg} alt="Fuck you" width="100px" height="100px" />
+									<img src={props.theme === 'dark' ? altImgDark : altImg} alt="Fuck you" width="100px" height="100px" />
 									<p>fuck you</p>
 								</div>
 							</div>

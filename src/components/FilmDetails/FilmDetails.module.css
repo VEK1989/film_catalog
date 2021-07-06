@@ -20,6 +20,15 @@
 	color: #503131;
 }
 
+.dark{
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	color: #ffffff;
+}
+
 .header{
 	grid-area: header;
 	padding: 20px 5px 20px;

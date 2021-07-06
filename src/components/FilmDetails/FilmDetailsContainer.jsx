@@ -31,7 +31,7 @@ const FilmDetailsContainer = (props) => {
 
 	return (
 		<div>
-			<FilmDetails data={filmData} />
+			<FilmDetails data={filmData} theme={props.theme} />
 		</div>
 	);
 };

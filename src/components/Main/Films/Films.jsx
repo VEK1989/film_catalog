@@ -24,7 +24,8 @@ const Films = (props) => {
 							title={item.title}
 							id={item.id}
 							hover={props.hover}
-							properties={props.properties} />
+							properties={props.properties}
+							theme={props.theme} />
 					})
 				}
 			</div>

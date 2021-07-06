@@ -8,7 +8,7 @@ body {
     font-family: 'Play', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    transition: all 0.50s linear;
+    transition: all 0.10s linear;
 }
 
 .active{

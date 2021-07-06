@@ -8,7 +8,7 @@ import { lightTheme, darkTheme } from './components/Commons/ThemeToggle/Themes';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './components/Commons/ThemeToggle/useDarkMode';
 
-function App() {
+const App = (props) => {
   const [theme, themeToggler] = useDarkMode();
 
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
@@ -21,8 +21,8 @@ function App() {
           <Header theme={theme} toggleTheme={themeToggler} />
           <Switch>
             <Redirect exact from='/' to='/films' />
-            <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
-            <Route path='/' render={() => <Main />} />
+            <Route path='/film/:filmId' render={() => <FilmDetailsContainer theme={theme} />} />
+            <Route path='/' render={() => <Main theme={theme} />} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -1,27 +1,29 @@
 import style from './FilmDetails.module.css';
 import { NavLink } from 'react-router-dom';
 import altImg from '../../assets/images/altTitle.svg';
-import left from '../../assets/images/left.png';
+import altImgDark from '../../assets/images/altPhotoDark.png';
 import StarsRating from '../Commons/StarsRating/StarsRating';
 import LikeButton from '../Commons/LikeButton/LikeButton';
+import cn from 'classnames';
 
 const FilmDetails = (props) => {
 	return (
 		<div className={style.container}>
 			<div className={style.header}>
-				<NavLink to="/films" className={style.back} >
-					<span className={style.back}><img src={left} alt="left" width="12px" height="12px" />  Back</span>
+				<NavLink to="/films" className={cn(style.back, { [style.dark]: props.theme === 'dark' })} >
+					<span>{'<'} Back</span>
 				</NavLink>
 			</div>
 
 			<div className={style.poster} >
-				{props.data.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.data.poster_path}`} alt="poster" width="380px" height="573px" className={style.poster} />
-					: <div className={style.fuckYou}>
-						<div>
-							<img src={altImg} alt="Fuck you" width="100px" height="100px" />
-							<p>fuck you</p>
+				{
+					props.data.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.data.poster_path}`} alt="poster" width="380px" height="573px" className={style.poster} />
+						: <div className={style.fuckYou}>
+							<div>
+								<img src={props.theme === 'dark' ? altImgDark : altImg} alt="Fuck you" width="100px" height="100px" />
+								<p>fuck you</p>
+							</div>
 						</div>
-					</div>
 				}
 			</div>
 			<span className={style.name}>{props.data.title}</span>

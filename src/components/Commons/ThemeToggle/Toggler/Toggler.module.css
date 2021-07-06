@@ -30,8 +30,8 @@
     z-index: 1;
 }
 .switch_on {
-    background: #000000;
+    background: #ffffff;
 }
 .switch_on::after {
-    left: 37px;
+    left: 23px;
 }
