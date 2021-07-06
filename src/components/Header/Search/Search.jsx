@@ -21,7 +21,7 @@ const Search = (props) => {
 				<Form>
 					<div className={style.input}>
 						<Field type="text" name="term" className={style.input_area} placeholder="Search" />
-						<Field name="filter" as="select">
+						<Field name="filter" as="select" className={style.select_area}>
 							<option value="popular">Popular</option>
 							<option value="now_playing">Now playing</option>
 							<option value="top_rated">Top rated</option>

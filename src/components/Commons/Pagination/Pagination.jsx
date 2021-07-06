@@ -5,17 +5,17 @@ import cn from 'classnames';
 const Pagination = (props) => {
 	let portionSize = 5
 
-	let pagesCount = Math.ceil(props.totalResults / props.pageSize)
+	let pagesCount = Math.ceil(props.totalResults / props.pageSize) // колличество страниц с делением в большую сторону
 
 	let pages = []
 	for (let i = 1; i <= pagesCount; i++) {
 		pages.push(i)
 	}
 
-	let portionCount = Math.ceil(pagesCount / portionSize)
+	let portionCount = Math.ceil(pagesCount / portionSize) // колличество отображаемых страниц (порций)
 	let [portionNumber, setPortionNumber] = useState(1)
-	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
-	let rightPortionPageNumber = portionNumber * portionSize
+	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1 // крайний левый номер страницы
+	let rightPortionPageNumber = portionNumber * portionSize // крайний правый
 
 	return (
 		<div className={style.paginations}>
