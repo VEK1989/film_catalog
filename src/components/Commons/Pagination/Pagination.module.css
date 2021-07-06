@@ -6,12 +6,10 @@
 
 .pageNumber{
 	cursor: pointer;
-	color: #503131;
 	margin: 0 13px 0 13px;
 }
 
 .selectedPage{
-	color: #503131;
 	font-size: 25px;
 	font-weight: bold;
 	cursor: pointer;
@@ -28,7 +26,6 @@
 	background-color: transparent;
 	cursor: pointer;
 	font-family: 'Play';
-	color: #503131;
 	font-size: 25px;
 	padding: 3px;
 	margin: 0 10px 0 10px;

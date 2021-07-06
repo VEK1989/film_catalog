@@ -3,21 +3,30 @@ import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import FilmDetailsContainer from './components/FilmDetails/FilmDetailsContainer';
-import SearchPage from './components/Header/Search/SearchPage/SearchPage';
+import { GlobalStyles } from './components/Commons/ThemeToggle/GlobalStyles';
+import { lightTheme, darkTheme } from './components/Commons/ThemeToggle/Themes';
+import { ThemeProvider } from 'styled-components';
+import { useDarkMode } from './components/Commons/ThemeToggle/useDarkMode';
 
 function App() {
+  const [theme, themeToggler] = useDarkMode();
+
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
   return (
-    <BrowserRouter>
-      <div className="body">
-        <Header />
-        <Switch>
-          <Redirect exact from='/' to='/films' />
-          <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
-          <Route path='/search' render={() => <SearchPage />} />
-          <Route path='/' render={() => <Main />} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+      <BrowserRouter>
+        <div className="body">
+          <Header theme={theme} toggleTheme={themeToggler} />
+          <Switch>
+            <Redirect exact from='/' to='/films' />
+            <Route path='/film/:filmId' render={() => <FilmDetailsContainer />} />
+            <Route path='/' render={() => <Main />} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

@@ -7,10 +7,26 @@ const instans = axios.create({
 	baseURL: 'https://api.themoviedb.org/3/'
 })
 
-export const getPopularFilms = (page) => {
-	return instans.get(`movie/popular?api_key=${apiKey}&language=${langEng}&page=${page}`)
+const errorProcessing = (err) => {
+	if (err.response) {
+		// client received an error response (5xx, 4xx)
+		console.log(err.response)
+	} else if (err.request) {
+		// client never received a response, or request never left 
+		console.log(err.request)
+	} else {
+		// anything else
+		console.log(err)
+	}
+}
+
+export const getPopularFilms = (page, value = 'popular') => {
+	return instans.get(`movie/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
 		.then(response => {
 			return response.data
+		})
+		.catch(err => {
+			errorProcessing(err)
 		})
 }
 
@@ -19,11 +35,17 @@ export const getFilmData = (filmId) => {
 		.then(response => {
 			return response.data
 		})
+		.catch(err => {
+			errorProcessing(err)
+		})
 }
 
-export const getSerchFilm = (query) => {
-	return instans.get(`search/movie?api_key=${apiKey}&query=${query}`)
+export const getSerchFilm = (query, page) => {
+	return instans.get(`search/movie?api_key=${apiKey}&query=${query}&page=${page}`)
 		.then(response => {
 			return response.data
+		})
+		.catch(err => {
+			errorProcessing(err)
 		})
 }

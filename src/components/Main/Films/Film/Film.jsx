@@ -1,5 +1,5 @@
 import style from './Film.module.css';
-import altImg from '../../../../assets/images/altTitle.png';
+import altImg from '../../../../assets/images/altTitle.svg';
 import { NavLink } from 'react-router-dom';
 import star from '../../../../assets/images/star.png';
 import LikeButton from '../../../Commons/LikeButton/LikeButton';
@@ -14,11 +14,11 @@ const Film = (props) => {
 							<LikeButton id={props.id} className={style.like} />
 							<div className={style.info}>
 								<div>
-									{
-										(props.properties.genres.length > 1) ? <span>{props.properties.genres[0].name}/{props.properties.genres[1].name}</span>
+									{!props.properties.genres[0] ? <span>there is no data</span>
+										: (props.properties.genres.length > 1) ? <span>{props.properties.genres[0].name}/{props.properties.genres[1].name}</span>
 											: <span>{props.properties.genres[0].name}</span>
 									}
-									<div>{props.properties.runtime} min</div>
+									<div>{!props.properties.runtime ? 0 : props.properties.runtime} min</div>
 									<div>{props.properties.release_date.split(['-'])[0]}</div>
 								</div>
 							</div>
@@ -29,7 +29,16 @@ const Film = (props) => {
 				</div>)
 
 				: (<div className={style.filmItem} >
-					<img src={props.poster_path ? (`https://www.themoviedb.org/t/p/original${props.poster_path}`) : altImg} alt="#" width="250px" height="330px" />
+					{
+						props.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt="#" width="250px" height="330px" />
+							: <div className={style.fuckYou}>
+								<div>
+									<img src={altImg} alt="Fuck you" width="100px" height="100px" />
+									<p>fuck you</p>
+								</div>
+							</div>
+					}
+
 					<span className={style.title}>{props.title}</span>
 				</div>)
 			}

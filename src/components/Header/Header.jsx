@@ -1,7 +1,7 @@
 import style from './Header.module.css';
-import icon from '../../assets/images/header-icon.png';
+import icon from '../../assets/images/header-icon.svg';
 import Search from './Search/Search';
-import Switcher from './Switcher/Switcher';
+import Toggle from '../Commons/ThemeToggle/Toggler/Toggler';
 import { getSerchFilm } from '../../api/api'
 import { useEffect } from 'react';
 
@@ -13,7 +13,7 @@ const Header = (props) => {
 					<img src={icon} alt="icon" width="30px" height="30px" />
 					<Search />
 				</div>
-				<Switcher />
+				<Toggle theme={props.theme} toggleTheme={props.themeToggler} />
 			</div>
 		</div>
 	);

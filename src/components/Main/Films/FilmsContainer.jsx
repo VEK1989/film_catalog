@@ -1,16 +1,24 @@
 import { connect } from "react-redux";
 import Films from "./Films";
 import { setItems, setPage, setTotalResults, setProperties, setHover, setFilmId } from '../../../redux/films-reduser';
+import { setSearchName } from '../../../redux/search-reduser';
 import { useEffect } from "react";
-import { getFilmData, getPopularFilms } from '../../../api/api'
+import { getFilmData, getPopularFilms, getSerchFilm } from '../../../api/api'
 
 const FilmsContainer = (props) => {
 	useEffect(() => {
-		getPopularFilms(props.page).then(data => {
-			props.setItems(data.results)
-			props.setTotalResults(data.total_results)
-		})
-	}, [props.page])
+		if (props.searchName === '') {
+			getPopularFilms(props.page, props.filter).then(data => {
+				props.setItems(data.results)
+				props.setTotalResults(data.total_results)
+			})
+		} else {
+			getSerchFilm(props.searchName, props.page).then(data => {
+				props.setItems(data.results)
+				props.setTotalResults(data.total_results)
+			})
+		}
+	}, [props.page, props.searchName, props.filter])
 
 	useEffect(() => {
 		getFilmData(props.filmId).then(data => {
@@ -31,7 +39,9 @@ const mapStateToProps = (state) => {
 		pageSize: state.films.pageSize,
 		totalResults: state.films.totalResults,
 		page: state.films.page,
-		properties: state.films.properties
+		properties: state.films.properties,
+		searchName: state.search.searchName,
+		filter: state.search.filter
 	}
 }
 
@@ -54,6 +64,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		setProperties: (properties) => {
 			dispatch(setProperties(properties))
+		},
+		setSearchName: (query) => {
+			dispatch(setSearchName(query))
 		}
 	}
 }
