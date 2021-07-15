@@ -1,3 +1,5 @@
+import { getFilmData, getPopularFilms, getSerchFilm } from "../api/api"
+
 const SET_ITEMS = 'SET_ITEMS'
 const SET_PAGE = 'SET_PAGE'
 const SET_TOTAL_RESULTS = 'SET_TOTAL_RESULTS'
@@ -85,5 +87,31 @@ export const setPage = (page) => ({ type: SET_PAGE, page })
 export const setTotalResults = (totalResults) => ({ type: SET_TOTAL_RESULTS, totalResults })
 export const setProperties = (properties) => ({ type: SET_PROPERTIES, properties })
 export const setFilmId = (id) => ({ type: SET_FILM_ID, id })
+
+export const getFilmsProperty = (filmId) => {
+	return (dispatch) => {
+		getFilmData(filmId).then(data => {
+			dispatch(setProperties(data))
+		})
+	}
+}
+
+export const getFilterPopular = (page, filter) => {
+	return (dispatch) => {
+		getPopularFilms(page, filter).then(data => {
+			dispatch(setItems(data.results))
+			dispatch(setTotalResults(data.total_results))
+		})
+	}
+}
+
+export const getSerchingFilter = (searchName, page) => {
+	return (dispatch) => {
+		getSerchFilm(searchName, page).then(data => {
+			dispatch(setItems(data.results))
+			dispatch(setTotalResults(data.total_results))
+		})
+	}
+}
 
 export default filmsReduser;

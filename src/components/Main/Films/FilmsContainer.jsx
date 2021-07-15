@@ -1,29 +1,20 @@
 import { connect } from "react-redux";
 import Films from "./Films";
-import { setItems, setPage, setTotalResults, setProperties, setHover, setFilmId } from '../../../redux/films-reduser';
+import { setItems, setPage, setTotalResults, setProperties, setHover, setFilmId, getFilmsProperty, getFilterPopular, getSerchingFilter } from '../../../redux/films-reduser';
 import { setSearchName } from '../../../redux/search-reduser';
 import { useEffect } from "react";
-import { getFilmData, getPopularFilms, getSerchFilm } from '../../../api/api'
 
 const FilmsContainer = (props) => {
 	useEffect(() => {
 		if (props.searchName === '') {
-			getPopularFilms(props.page, props.filter).then(data => {
-				props.setItems(data.results)
-				props.setTotalResults(data.total_results)
-			})
+			props.getFilterPopular(props.page, props.filter)
 		} else {
-			getSerchFilm(props.searchName, props.page).then(data => {
-				props.setItems(data.results)
-				props.setTotalResults(data.total_results)
-			})
+			props.getSerchingFilter(props.searchName, props.page)
 		}
 	}, [props.page, props.searchName, props.filter])
 
 	useEffect(() => {
-		getFilmData(props.filmId).then(data => {
-			props.setProperties(data)
-		})
+		props.getFilmsProperty(props.filmId)
 	}, [props.filmId])
 
 	return (
@@ -45,31 +36,17 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		setFilmId: (id) => {
-			dispatch(setFilmId(id))
-		},
-		setHover: (id) => {
-			dispatch(setHover(id))
-		},
-		setItems: (items) => {
-			dispatch(setItems(items))
-		},
-		setPage: (page) => {
-			dispatch(setPage(page))
-		},
-		setTotalResults: (totalResult) => {
-			dispatch(setTotalResults(totalResult))
-		},
-		setProperties: (properties) => {
-			dispatch(setProperties(properties))
-		},
-		setSearchName: (query) => {
-			dispatch(setSearchName(query))
-		}
-	}
+export default connect(mapStateToProps, {
+	getSerchingFilter,
+	getFilterPopular,
+	getFilmsProperty,
+	setFilmId,
+	setHover,
+	setItems,
+	setPage,
+	setTotalResults,
+	setProperties,
+	setSearchName
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilmsContainer)
+)(FilmsContainer)
 
