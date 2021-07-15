@@ -3,6 +3,7 @@ import style from './Pagination.module.css';
 import cn from 'classnames';
 
 const Pagination = (props) => {
+	debugger
 	let portionSize = 5
 
 	let pagesCount = Math.ceil(props.totalResults / props.pageSize) // колличество страниц с делением в большую сторону
@@ -22,7 +23,7 @@ const Pagination = (props) => {
 			{
 				portionNumber > 1 &&
 				<span>
-					<button onClick={() => { setPortionNumber(portionNumber - 1) }} className={style.button}>{"<"}</button>
+					<button onClick={() => { setPortionNumber(portionNumber - 1) }} className={style.button}>{'<'}</button>
 					<span className={style.points} >...</span>
 				</span>
 			}
@@ -37,7 +38,7 @@ const Pagination = (props) => {
 				portionCount > portionNumber &&
 				<span>
 					<span className={style.points} >...</span>
-					<button onClick={() => { setPortionNumber(portionNumber + 1) }} className={style.button}>{">"}</button>
+					<button onClick={() => { setPortionNumber(portionNumber + 1) }} className={style.button}>{'>'}</button>
 				</span>
 			}
 		</div>

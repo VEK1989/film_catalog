@@ -9,7 +9,7 @@ const Header = (props) => {
 		<div className={style.header}>
 			<div className={style.wrapper}>
 				<div className={style.header_leftSide}>
-					<img src={props.theme === 'dark' ? iconDark : icon} alt="icon" width="30px" height="30px" />
+					<img src={props.theme === 'dark' ? iconDark : icon} alt='icon' width='30px' height='30px' />
 					<Search />
 				</div>
 				<Toggle theme={props.theme} toggleTheme={props.toggleTheme} />

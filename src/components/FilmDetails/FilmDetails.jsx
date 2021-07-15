@@ -10,17 +10,17 @@ const FilmDetails = (props) => {
 	return (
 		<div className={style.container}>
 			<div className={style.header}>
-				<NavLink to="/films" className={cn(style.back, { [style.dark]: props.theme === 'dark' })} >
+				<NavLink to='/films' className={cn(style.back, { [style.dark]: props.theme === 'dark' })} >
 					<span>{'<'} Back</span>
 				</NavLink>
 			</div>
 
 			<div className={style.poster} >
 				{
-					props.data.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.data.poster_path}`} alt="poster" width="380px" height="573px" className={style.poster} />
+					props.data.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.data.poster_path}`} alt='poster' width='380px' height='573px' className={style.poster} />
 						: <div className={style.fuckYou}>
 							<div>
-								<img src={props.theme === 'dark' ? altImgDark : altImg} alt="Fuck you" width="100px" height="100px" />
+								<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
 								<p>fuck you</p>
 							</div>
 						</div>

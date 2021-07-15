@@ -23,7 +23,7 @@ const Film = (props) => {
 									<div>{props.properties.release_date.split(['-'])[0]}</div>
 								</div>
 							</div>
-							<div className={style.rating}>{props.properties.vote_average} <img src={star} alt="star" width="14px" height="14px" /></div>
+							<div className={style.rating}>{props.properties.vote_average} <img src={star} alt='star' width='14px' height='14px' /></div>
 						</div>
 					</NavLink>
 					<span className={style.title}>{props.title}</span>
@@ -31,10 +31,10 @@ const Film = (props) => {
 
 				: (<div className={style.filmItem} >
 					{
-						props.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt="#" width="250px" height="330px" />
+						props.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt='#' width='250px' height='330px' />
 							: <div className={style.fuckYou}>
 								<div>
-									<img src={props.theme === 'dark' ? altImgDark : altImg} alt="Fuck you" width="100px" height="100px" />
+									<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
 									<p>fuck you</p>
 								</div>
 							</div>

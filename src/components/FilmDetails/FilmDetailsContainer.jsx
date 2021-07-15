@@ -1,22 +1,21 @@
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import FilmDetails from "./FilmDetails";
-import { useEffect, useState } from "react";
+import FilmDetails from './FilmDetails';
+import { useEffect, useState } from 'react';
 import { getFilmData } from '../../api/api';
 
 
 const FilmDetailsContainer = (props) => {
 	const [filmData, setFilmData] = useState({
-		poster_path: "",
-		original_title: "",
-		overview: "",
-		release_date: "",
+		poster_path: '',
+		original_title: '',
+		overview: '',
+		release_date: '',
 		runtime: 95,
 		vote_average: 2.2,
 		genres: [
 			{
 				id: 16,
-				name: "Animation"
+				name: 'Animation'
 			}
 		]
 	})
@@ -36,6 +35,4 @@ const FilmDetailsContainer = (props) => {
 	);
 };
 
-let withRouterComponent = withRouter(FilmDetailsContainer)
-
-export default connect()(withRouterComponent);
+export default withRouter(FilmDetailsContainer)

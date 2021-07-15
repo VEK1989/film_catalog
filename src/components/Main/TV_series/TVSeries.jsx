@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './TVSeries.module.css'
 
 const TVSeries = () => {
 	return (
