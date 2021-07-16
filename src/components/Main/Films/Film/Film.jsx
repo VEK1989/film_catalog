@@ -3,9 +3,9 @@ import altImg from '../../../../assets/images/altTitle.svg';
 import altImgDark from '../../../../assets/images/altPhotoDark.png';
 import { NavLink } from 'react-router-dom';
 import star from '../../../../assets/images/star.png';
-import LikeButton from '../../../Commons/LikeButton/LikeButton';
+import { LikeButton } from '../../../Commons/LikeButton/LikeButton';
 
-const Film = (props) => {
+export const Film = (props) => {
 	return (
 		<div onMouseEnter={props.isHovered} onMouseLeave={props.unHovered} >
 			{props.hover.id === props.id ? (
@@ -46,5 +46,4 @@ const Film = (props) => {
 		</div >
 	);
 
-}
-export default Film;
+};

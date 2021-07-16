@@ -1,5 +1,5 @@
 import { withRouter } from 'react-router-dom';
-import FilmDetails from './FilmDetails';
+import { FilmDetails } from './FilmDetails';
 import { useEffect, useState } from 'react';
 import { getFilmData } from '../../api/api';
 

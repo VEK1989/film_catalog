@@ -2,11 +2,11 @@ import style from './FilmDetails.module.css';
 import { NavLink } from 'react-router-dom';
 import altImg from '../../assets/images/altTitle.svg';
 import altImgDark from '../../assets/images/altPhotoDark.png';
-import StarsRating from '../Commons/StarsRating/StarsRating';
-import LikeButton from '../Commons/LikeButton/LikeButton';
+import { StarsRating } from '../Commons/StarsRating/StarsRating';
+import { LikeButton } from '../Commons/LikeButton/LikeButton';
 import cn from 'classnames';
 
-const FilmDetails = (props) => {
+export const FilmDetails = (props) => {
 	return (
 		<div className={style.container}>
 			<div className={style.header}>
@@ -52,5 +52,3 @@ const FilmDetails = (props) => {
 		</div>
 	);
 };
-
-export default FilmDetails;

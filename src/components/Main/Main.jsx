@@ -2,10 +2,10 @@ import React from 'react';
 import style from './Main.module.css';
 import { Route, NavLink } from 'react-router-dom';
 import { Films } from './Films/Films';
-import TVSeries from './TV_series/TVSeries';
+import { TVSeries } from './TV_series/TVSeries';
 import cn from 'classnames';
 
-const Main = (props) => {
+export const Main = (props) => {
 	return (
 		<div>
 			<div className={style.links}>
@@ -19,5 +19,3 @@ const Main = (props) => {
 		</div>
 	);
 };
-
-export default Main;

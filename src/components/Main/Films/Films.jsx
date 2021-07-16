@@ -1,6 +1,6 @@
 import style from './Films.module.css';
-import Pagination from '../../Commons/Pagination/Pagination';
-import Film from './Film/Film';
+import { Pagination } from '../../Commons/Pagination/Pagination';
+import { Film } from './Film/Film';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getFilmId,

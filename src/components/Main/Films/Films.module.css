@@ -2,6 +2,7 @@
 	grid-area: main;
 	display: flex;
 	flex-wrap: wrap;
+	box-sizing: border-box;
 }
 
 .content{
@@ -9,6 +10,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 .filmItem{

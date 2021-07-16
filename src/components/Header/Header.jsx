@@ -1,10 +1,10 @@
 import style from './Header.module.css';
 import icon from '../../assets/images/header-icon.svg';
 import iconDark from '../../assets/images/logoDark.png';
-import Search from './Search/Search';
-import Toggle from '../Commons/ThemeToggle/Toggler/Toggler';
+import { Search } from './Search/Search';
+import { Toggle } from '../Commons/ThemeToggle/Toggler/Toggler';
 
-const Header = (props) => {
+export const Header = (props) => {
 	return (
 		<div className={style.header}>
 			<div className={style.wrapper}>
@@ -17,5 +17,3 @@ const Header = (props) => {
 		</div>
 	);
 };
-
-export default Header;

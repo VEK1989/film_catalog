@@ -1,7 +1,7 @@
 import style from './Toggler.module.css';
 import cn from 'classnames';
 
-const Toggle = (props) => {
+export const Toggle = (props) => {
 	return (
 		<div className={style.switch}>
 			<span>Dark theme</span>
@@ -9,5 +9,3 @@ const Toggle = (props) => {
 		</div>
 	);
 };
-
-export default Toggle;

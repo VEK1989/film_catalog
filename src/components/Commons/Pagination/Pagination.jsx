@@ -2,8 +2,7 @@ import { useState } from 'react';
 import style from './Pagination.module.css';
 import cn from 'classnames';
 
-const Pagination = (props) => {
-	debugger
+export const Pagination = (props) => {
 	let portionSize = 5
 
 	let pagesCount = Math.ceil(props.totalResults / props.pageSize) // колличество страниц с делением в большую сторону
@@ -44,5 +43,3 @@ const Pagination = (props) => {
 		</div>
 	);
 };
-
-export default Pagination;

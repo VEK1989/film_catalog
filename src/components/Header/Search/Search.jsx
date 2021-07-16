@@ -2,14 +2,17 @@ import style from './Search.module.css';
 import searchImg from '../../../assets/images/header-search.png';
 import { Formik, Form, Field } from 'formik';
 import { setFilterChange, setSearchName } from '../../../redux/search-reduser';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getSearchName } from '../../../redux/selectors';
 
-const Search = (props) => {
+export const Search = (props) => {
+	const searchName = useSelector(getSearchName)
+
+	const dispatch = useDispatch()
 
 	const submit = (values, { setSubmitting }) => {
-		props.setSearchName(values.term)
-		props.setFilterChange(values.filter)
+		dispatch(setSearchName(values.term))
+		dispatch(setFilterChange(values.filter))
 		setSubmitting(false)
 	}
 
@@ -37,12 +40,3 @@ const Search = (props) => {
 		</Formik>
 	);
 };
-
-const mapStateToProps = (state) => {
-	return {
-		searchName: getSearchName(state)
-	}
-}
-
-
-export default connect(mapStateToProps, { setSearchName, setFilterChange })(Search)

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import style from './LikeButton.module.css';
 import cn from 'classnames';
 
-const LikeButton = (props) => {
+export const LikeButton = (props) => {
 	const [like, setLike] = useState(window.localStorage.getItem(`${props.id}-like`) || 'unLike');
 
 	const toggleLike = () => {
@@ -24,5 +24,3 @@ const LikeButton = (props) => {
 		<div className={cn(style.like, { [style.active]: like === 'like' })} onClick={toggleLike}>&#10084;</div>
 	);
 };
-
-export default LikeButton;
