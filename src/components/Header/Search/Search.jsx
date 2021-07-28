@@ -23,17 +23,19 @@ export const Search = (props) => {
 		>
 			{({ isSubmitting }) => (
 				<Form>
-					<div className={style.input}>
-						<Field type='text' name='term' className={style.input_area} placeholder='Search' />
+					<div className={style.searchArea}>
+						<div className={style.input}>
+							<Field type='text' name='term' className={style.input_area} placeholder='Search' />
+							<button type='submit' disabled={isSubmitting} className={style.button}>
+								<img src={searchImg} alt='search' width='16px' height='16px' />
+							</button>
+						</div>
 						<Field name='filter' as='select' className={style.select_area}>
 							<option value='popular'>Popular</option>
 							<option value='now_playing'>Now playing</option>
 							<option value='top_rated'>Top rated</option>
 							<option value='upcoming'>Upcoming</option>
 						</Field>
-						<button type='submit' disabled={isSubmitting} className={style.button}>
-							<img src={searchImg} alt='search' width='16px' height='16px' />
-						</button>
 					</div>
 				</Form>
 			)}

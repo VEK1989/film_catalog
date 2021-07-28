@@ -8,7 +8,7 @@ import { lightTheme, darkTheme } from './components/Commons/ThemeToggle/Themes';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './components/Commons/ThemeToggle/useDarkMode';
 
-const App = (props) => {
+const App = () => {
   const [theme, themeToggler] = useDarkMode();
 
   const themeMode = theme === 'light' ? lightTheme : darkTheme;

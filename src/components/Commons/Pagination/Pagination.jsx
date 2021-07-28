@@ -3,19 +3,19 @@ import style from './Pagination.module.css';
 import cn from 'classnames';
 
 export const Pagination = (props) => {
-	let portionSize = 5
+	const portionSize = 5
 
-	let pagesCount = Math.ceil(props.totalResults / props.pageSize) // колличество страниц с делением в большую сторону
+	const pagesCount = Math.ceil(props.totalResults / props.pageSize) // колличество страниц с делением в большую сторону
 
-	let pages = []
+	const pages = []
 	for (let i = 1; i <= pagesCount; i++) {
 		pages.push(i)
 	}
 
-	let portionCount = Math.ceil(pagesCount / portionSize) // колличество отображаемых страниц (порций)
-	let [portionNumber, setPortionNumber] = useState(1)
-	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1 // крайний левый номер страницы
-	let rightPortionPageNumber = portionNumber * portionSize // крайний правый
+	const portionCount = Math.ceil(pagesCount / portionSize) // колличество отображаемых страниц (порций)
+	const [portionNumber, setPortionNumber] = useState(1)
+	const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1 // крайний левый номер страницы
+	const rightPortionPageNumber = portionNumber * portionSize // крайний правый
 
 	return (
 		<div className={style.paginations}>

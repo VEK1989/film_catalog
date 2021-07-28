@@ -20,7 +20,7 @@ const FilmDetailsContainer = (props) => {
 		]
 	})
 
-	let filmId = props.match.params.filmId
+	const filmId = props.match.params.filmId
 
 	useEffect(() => {
 		getFilmData(filmId).then(data => {
