@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Main.module.css';
 import { Route, NavLink } from 'react-router-dom';
 import { Films } from './Films/Films';
-import { TVSeries } from './TV_series/TVSeries';
+import { TvSeries } from './TV_series/TvSeries';
 import cn from 'classnames';
 
 export const Main = (props) => {
@@ -14,7 +14,7 @@ export const Main = (props) => {
 			</div>
 			<div>
 				<Route path='/films' render={() => <Films theme={props.theme} />} />
-				<Route path='/tv_series' render={() => <TVSeries />} />
+				<Route path='/tv_series' render={() => <TvSeries />} />
 			</div>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const TVSeries = () => {
+export const TvSeries = () => {
 	return (
 		<div>
 		</div>
