@@ -10,7 +10,7 @@ import { getProperties } from '../../redux/selectors';
 import { getFilmsProperty } from '../../redux/films-reduser';
 import { useEffect } from 'react';
 
-export const FilmDetails = (props) => {
+export const SerialsDetails = (props) => {
 
 	const dispatch = useDispatch()
 
@@ -23,7 +23,7 @@ export const FilmDetails = (props) => {
 	return (
 		<div className={style.container}>
 			<div className={style.header}>
-				<NavLink to='/films' className={cn(style.back, { [style.dark]: props.theme === 'dark' })} >
+				<NavLink to='/tv_series' className={cn(style.back, { [style.dark]: props.theme === 'dark' })} >
 					<span>{'<'} Back</span>
 				</NavLink>
 			</div>
@@ -39,10 +39,9 @@ export const FilmDetails = (props) => {
 						</div>
 				}
 			</div>
-			<span className={style.name}>{
-				props.name === 'tv' && filmData.title
-					? filmData.title
-					: ''
+			<span className={style.name}>{filmData.name
+				? filmData.name
+				: ''
 			}</span>
 			<div className={style.rating}><StarsRating rating={filmData.vote_average} id={filmData.id} /></div>
 			<div className={style.props}>
@@ -59,14 +58,14 @@ export const FilmDetails = (props) => {
 				</span>
 				<span className={style.value_name}>
 					{
-						filmData.release_date
-							? filmData.release_date.split(['-'])[0]
+						filmData.first_air_date
+							? filmData.first_air_date.split(['-'])[0]
 							: ''
 					}
 				</span>
 				<span className={style.value_name}>{
-					filmData.runtime
-						? filmData.runtime
+					filmData.episode_run_time
+						? filmData.episode_run_time
 						: ''
 				}minutes</span>
 			</div>

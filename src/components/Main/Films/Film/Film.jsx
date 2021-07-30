@@ -23,8 +23,8 @@ export const Film = (props) => {
 							<LikeButton id={props.id} className={style.like} />
 							<div className={style.info}>
 								<div>
-									{!genre[0].name ? <span>there is no data</span>
-										: (genre.length > 1) ? <span>{genre[0].name}/{genre[1].name}</span>
+									{
+										genre.length > 1 ? <span>{genre[0].name}/{genre[1].name}</span>
 											: <span>{genre[0].name}</span>
 									}
 									{/* <div>{!props.properties.runtime ? 0 : props.properties.runtime} min</div> тут должна быть продолжительность фильма,
@@ -52,7 +52,11 @@ export const Film = (props) => {
 							</div>
 					}
 
-					<span className={style.title}>{props.title}</span>
+					<span className={style.title}>{
+						props.title
+							? props.title
+							: 'Name is not found'
+					}</span>
 				</div>)
 			}
 		</div >

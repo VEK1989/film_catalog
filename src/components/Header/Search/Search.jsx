@@ -5,7 +5,7 @@ import { setFilterChange, setSearchName } from '../../../redux/search-reduser';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSearchName } from '../../../redux/selectors';
 
-export const Search = (props) => {
+export const Search = () => {
 	const searchName = useSelector(getSearchName)
 
 	const dispatch = useDispatch()
