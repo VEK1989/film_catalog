@@ -5,32 +5,33 @@ import { getFilmData } from '../../api/api';
 
 
 const FilmDetailsContainer = (props) => {
-	const [filmData, setFilmData] = useState({
-		poster_path: '',
-		original_title: '',
-		overview: '',
-		release_date: '',
-		runtime: 95,
-		vote_average: 2.2,
-		genres: [
-			{
-				id: 16,
-				name: 'Animation'
-			}
-		]
-	})
+	// const [filmData, setFilmData] = useState({
+	// 	poster_path: '',
+	// 	original_title: '',
+	// 	overview: '',
+	// 	release_date: '',
+	// 	runtime: 95,
+	// 	vote_average: 2.2,
+	// 	genres: [
+	// 		{
+	// 			id: 16,
+	// 			name: 'Animation'
+	// 		}
+	// 	]
+	// })
 
 	const filmId = props.match.params.filmId
+	const name = props.match.params.film
 
-	useEffect(() => {
-		getFilmData(filmId).then(data => {
-			setFilmData(data)
-		})
-	}, [filmId])
+	// useEffect(() => {
+	// 	getFilmData(filmId, name).then(data => {
+	// 		setFilmData(data)
+	// 	})
+	// }, [filmId])
 
 	return (
 		<div>
-			<FilmDetails data={filmData} theme={props.theme} />
+			<FilmDetails filmId={filmId} name={name} theme={props.theme} />
 		</div>
 	);
 };

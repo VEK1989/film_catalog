@@ -20,8 +20,8 @@ const errorProcessing = (err) => {
 	}
 }
 
-export const getPopularFilms = (page, value = 'popular') => {
-	return instans.get(`movie/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
+export const getPopularFilms = (page, value = 'popular', name) => {
+	return instans.get(`${name}/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
 		.then(response => {
 			return response.data
 		})
@@ -30,8 +30,8 @@ export const getPopularFilms = (page, value = 'popular') => {
 		})
 }
 
-export const getFilmData = (filmId) => {
-	return instans.get(`movie/${filmId}?api_key=${apiKey}&language=${langEng}`)
+export const getFilmData = (filmId, name) => {
+	return instans.get(`${name}/${filmId}?api_key=${apiKey}&language=${langEng}`)
 		.then(response => {
 			return response.data
 		})
@@ -40,8 +40,8 @@ export const getFilmData = (filmId) => {
 		})
 }
 
-export const getSerchFilm = (query, page) => {
-	return instans.get(`search/movie?api_key=${apiKey}&query=${query}&page=${page}`)
+export const getSerchFilm = (query, page, name) => {
+	return instans.get(`search/${name}?api_key=${apiKey}&query=${query}&page=${page}`)
 		.then(response => {
 			return response.data
 		})

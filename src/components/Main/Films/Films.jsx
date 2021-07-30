@@ -22,14 +22,15 @@ export const Films = (props) => {
 	const page = useSelector(getPage)
 	const searchName = useSelector(getSearchName)
 	const filter = useSelector(getFilter)
+	const name = 'movie'
 
 	const dispatch = useDispatch()
 
 	useEffect(() => {
 		if (searchName === '') {
-			dispatch(getFilterPopular(page, filter))
+			dispatch(getFilterPopular(page, filter, name))
 		} else {
-			dispatch(getSerchingFilter(searchName, page))
+			dispatch(getSerchingFilter(searchName, page, name))
 		}
 	}, [page, searchName, filter])
 
@@ -65,7 +66,8 @@ export const Films = (props) => {
 							release_date={item.release_date}
 							vote_average={item.vote_average}
 							genres={item.genre_ids}
-							theme={props.theme} />
+							theme={props.theme}
+							name={name} />
 					})
 				}
 			</div>

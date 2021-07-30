@@ -96,26 +96,26 @@ export const setProperties = (properties) => ({ type: SET_PROPERTIES, properties
 export const setFilmId = (id) => ({ type: SET_FILM_ID, id })
 export const setGenresId = (genresId) => ({ type: SET_GENRES_ID, genresId })
 
-export const getFilmsProperty = (filmId) => {
+export const getFilmsProperty = (filmId, name) => {
 	return (dispatch) => {
-		getFilmData(filmId).then(data => {
+		getFilmData(filmId, name).then(data => {
 			dispatch(setProperties(data))
 		})
 	}
 }
 
-export const getFilterPopular = (page, filter) => {
+export const getFilterPopular = (page, filter, name) => {
 	return (dispatch) => {
-		getPopularFilms(page, filter).then(data => {
+		getPopularFilms(page, filter, name).then(data => {
 			dispatch(setItems(data.results))
 			dispatch(setTotalResults(data.total_results))
 		})
 	}
 }
 
-export const getSerchingFilter = (searchName, page) => {
+export const getSerchingFilter = (searchName, page, name) => {
 	return (dispatch) => {
-		getSerchFilm(searchName, page).then(data => {
+		getSerchFilm(searchName, page, name).then(data => {
 			dispatch(setItems(data.results))
 			dispatch(setTotalResults(data.total_results))
 		})

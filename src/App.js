@@ -14,7 +14,7 @@ const App = () => {
         <Header theme={theme} toggleTheme={themeToggler} />
         <Switch>
           <Redirect exact from='/' to='/films' />
-          <Route path='/film/:filmId' render={() => <FilmDetailsContainer theme={theme} />} />
+          <Route path='/details/:film/:filmId' render={() => <FilmDetailsContainer theme={theme} />} />
           <Route path='/' render={() => <Main theme={theme} />} />
         </Switch>
       </div>

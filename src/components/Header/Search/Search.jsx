@@ -32,9 +32,7 @@ export const Search = (props) => {
 						</div>
 						<Field name='filter' as='select' className={style.select_area}>
 							<option value='popular'>Popular</option>
-							<option value='now_playing'>Now playing</option>
 							<option value='top_rated'>Top rated</option>
-							<option value='upcoming'>Upcoming</option>
 						</Field>
 					</div>
 				</Form>

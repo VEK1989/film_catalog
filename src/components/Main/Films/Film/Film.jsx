@@ -18,7 +18,7 @@ export const Film = (props) => {
 		<div onMouseEnter={props.isHovered} onMouseLeave={props.unHovered} >
 			{props.hover.id === props.id ? (
 				<div className={style.filmItem}>
-					<NavLink to={`/film/${props.id}`} className={style.link}>
+					<NavLink to={`/details/${props.name}/${props.id}`} className={style.link}>
 						<div className={style.filmInfo}>
 							<LikeButton id={props.id} className={style.like} />
 							<div className={style.info}>
@@ -29,7 +29,10 @@ export const Film = (props) => {
 									}
 									{/* <div>{!props.properties.runtime ? 0 : props.properties.runtime} min</div> тут должна быть продолжительность фильма,
 									но она не приходит в свойствах, когда я запрашиваю фильмы пачкой*/}
-									<div>{props.release_date.split(['-'])[0]}</div>
+									<div>{props.release_date
+										? props.release_date.split(['-'])[0]
+										: ''
+									}</div>
 								</div>
 							</div>
 							<div className={style.rating}>{props.vote_average} <img src={star} alt='star' width='14px' height='14px' /></div>
