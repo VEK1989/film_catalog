@@ -49,3 +49,13 @@ export const getSerchFilm = (query, page) => {
 			errorProcessing(err)
 		})
 }
+
+export const getGenresId = (name) => {
+	return instans.get(`genre/${name}/list?api_key=${apiKey}&language=${langEng}`)
+		.then(response => {
+			return response.data
+		})
+		.catch(err => {
+			errorProcessing(err)
+		})
+}

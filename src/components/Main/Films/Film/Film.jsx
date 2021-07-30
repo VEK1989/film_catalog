@@ -4,8 +4,16 @@ import altImgDark from '../../../../assets/images/altPhotoDark.png';
 import { NavLink } from 'react-router-dom';
 import star from '../../../../assets/images/star.png';
 import { LikeButton } from '../../../Commons/LikeButton/LikeButton';
+import { useSelector } from 'react-redux';
+import { getAllGenresId } from '../../../../redux/selectors';
 
 export const Film = (props) => {
+	const genresId = useSelector(getAllGenresId)
+
+	const genre = genresId.filter((n) => {
+		return props.genres.indexOf(n.id) > -1
+	})
+
 	return (
 		<div onMouseEnter={props.isHovered} onMouseLeave={props.unHovered} >
 			{props.hover.id === props.id ? (
@@ -15,15 +23,16 @@ export const Film = (props) => {
 							<LikeButton id={props.id} className={style.like} />
 							<div className={style.info}>
 								<div>
-									{!props.properties.genres[0] ? <span>there is no data</span>
-										: (props.properties.genres.length > 1) ? <span>{props.properties.genres[0].name}/{props.properties.genres[1].name}</span>
-											: <span>{props.properties.genres[0].name}</span>
+									{!genre[0].name ? <span>there is no data</span>
+										: (genre.length > 1) ? <span>{genre[0].name}/{genre[1].name}</span>
+											: <span>{genre[0].name}</span>
 									}
-									<div>{!props.properties.runtime ? 0 : props.properties.runtime} min</div>
-									<div>{props.properties.release_date.split(['-'])[0]}</div>
+									{/* <div>{!props.properties.runtime ? 0 : props.properties.runtime} min</div> тут должна быть продолжительность фильма,
+									но она не приходит в свойствах, когда я запрашиваю фильмы пачкой*/}
+									<div>{props.release_date.split(['-'])[0]}</div>
 								</div>
 							</div>
-							<div className={style.rating}>{props.properties.vote_average} <img src={star} alt='star' width='14px' height='14px' /></div>
+							<div className={style.rating}>{props.vote_average} <img src={star} alt='star' width='14px' height='14px' /></div>
 						</div>
 					</NavLink>
 					<span className={style.title}>{props.title}</span>

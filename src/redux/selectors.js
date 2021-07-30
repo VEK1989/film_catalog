@@ -33,3 +33,7 @@ export const getSearchName = (state) => {
 export const getFilter = (state) => {
 	return state.search.filter
 }
+
+export const getAllGenresId = (state) => {
+	return state.films.genresId
+}

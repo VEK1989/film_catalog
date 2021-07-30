@@ -3,27 +3,23 @@ import { Pagination } from '../../Commons/Pagination/Pagination';
 import { Film } from './Film/Film';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-	getFilmId,
 	getFilmHover,
 	getItems,
 	getPageSize,
 	getTotalResults,
 	getPage,
-	getProperties,
 	getSearchName,
 	getFilter
 } from '../../../redux/selectors';
 import { useEffect } from 'react';
-import { getFilmsProperty, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser';
+import { getAllGenres, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser';
 
 export const Films = (props) => {
-	const filmId = useSelector(getFilmId)
 	const hover = useSelector(getFilmHover)
 	const items = useSelector(getItems)
 	const pageSize = useSelector(getPageSize)
 	const totalResults = useSelector(getTotalResults)
 	const page = useSelector(getPage)
-	const properties = useSelector(getProperties)
 	const searchName = useSelector(getSearchName)
 	const filter = useSelector(getFilter)
 
@@ -38,8 +34,8 @@ export const Films = (props) => {
 	}, [page, searchName, filter])
 
 	useEffect(() => {
-		dispatch(getFilmsProperty(filmId))
-	}, [filmId])
+		dispatch(getAllGenres('movie'))
+	}, [])
 
 	const isHovered = (selected, id) => {
 		dispatch(setHover(selected))
@@ -66,7 +62,9 @@ export const Films = (props) => {
 							title={item.title}
 							id={item.id}
 							hover={hover}
-							properties={properties}
+							release_date={item.release_date}
+							vote_average={item.vote_average}
+							genres={item.genre_ids}
 							theme={props.theme} />
 					})
 				}
