@@ -11,12 +11,14 @@ const App = () => {
   return (
     < BrowserRouter >
       <div className={theme === 'light' ? 'body' : 'darkBody'}>
-        <Header theme={theme} toggleTheme={themeToggler} />
-        <Switch>
-          <Redirect exact from='/' to='/films' />
-          <Route path='/details/:film/:filmId' render={() => <FilmDetailsContainer theme={theme} />} />
-          <Route path='/' render={() => <Main theme={theme} />} />
-        </Switch>
+        <div className='wrapper'>
+          <Header theme={theme} toggleTheme={themeToggler} />
+          <Switch>
+            <Redirect exact from='/' to='/films' />
+            <Route path='/details/:film/:filmId' render={() => <FilmDetailsContainer theme={theme} />} />
+            <Route path='/' render={() => <Main theme={theme} />} />
+          </Switch>
+        </div>
       </div>
     </ BrowserRouter >
   )

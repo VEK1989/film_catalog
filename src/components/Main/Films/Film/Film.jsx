@@ -24,11 +24,14 @@ export const Film = (props) => {
 							<div className={style.info}>
 								<div>
 									{
-										genre.length > 1 ? <span>{genre[0].name}/{genre[1].name}</span>
-											: <span>{genre[0].name}</span>
+										genre[0] ? <div>
+											{
+												genre.length > 1 ? <span>{genre[0].name}/{genre[1].name}</span>
+													: <span>{genre[0].name}</span>
+											}
+										</div>
+											: null
 									}
-									{/* <div>{!props.properties.runtime ? 0 : props.properties.runtime} min</div> тут должна быть продолжительность фильма,
-									но она не приходит в свойствах, когда я запрашиваю фильмы пачкой*/}
 									<div>{props.release_date
 										? props.release_date.split(['-'])[0]
 										: ''
