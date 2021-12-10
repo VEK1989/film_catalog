@@ -28,23 +28,3 @@ export class FilmsDataApi {
 		return response.data
 	}
 }
-
-export const getPopularFilms = async (page, value = 'popular', name) => {
-	const response = await instans.get(`${name}/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
-	return response.data
-}
-
-export const getFilmData = async (filmId, name) => {
-	const response = await instans.get(`${name}/${filmId}?api_key=${apiKey}&language=${langEng}`)
-	return response.data
-}
-
-export const getSerchFilm = async (query, page, name) => {
-	const response = await instans.get(`search/${name}?api_key=${apiKey}&query=${query}&page=${page}`)
-	return response.data
-}
-
-export const getGenresId = async (name) => {
-	const response = await instans.get(`genre/${name}/list?api_key=${apiKey}&language=${langEng}`)
-	return response.data
-}

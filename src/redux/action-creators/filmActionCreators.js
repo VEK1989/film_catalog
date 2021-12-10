@@ -10,47 +10,65 @@ export const filmActionCreator = {
 	setProperties: (properties) => ({ type: filmActionTypes.SET_PROPERTIES, properties }),
 	setFilmId: (id) => ({ type: filmActionTypes.SET_FILM_ID, id }),
 	setGenresId: (genresId) => ({ type: filmActionTypes.SET_GENRES_ID, genresId }),
+	setError: (error) => ({ type: filmActionTypes.SET_ERROR, error }),
+	setIsLoading: (isLoading) => ({ type: filmActionTypes.SET_IS_LOADING, isLoading }),
 
 	getFilmsProperty: (filmId, name) => async (dispatch) => {
 		try {
+			dispatch(filmActionCreator.setIsLoading(true))
 			const data = await FilmsDataApi.getFilmData(filmId, name)
 			dispatch(filmActionCreator.setProperties(data))
 		}
 		catch (e) {
-			console.log(e)
+			dispatch(filmActionCreator.setError(e.response.data.errors))
+		}
+		finally {
+			dispatch(filmActionCreator.setIsLoading(false))
 		}
 	},
 
 	getFilterPopular: (page, filter, name) => async (dispatch) => {
 		try {
+			dispatch(filmActionCreator.setIsLoading(true))
 			const data = await FilmsDataApi.getPopularFilms(page, filter, name)
 			dispatch(filmActionCreator.setItems(data.results))
 			dispatch(filmActionCreator.setTotalResults(data.total_results))
 		}
 		catch (e) {
-			console.log(e)
+			dispatch(filmActionCreator.setError(e.response.data.errors))
+		}
+		finally {
+			dispatch(filmActionCreator.setIsLoading(false))
 		}
 	},
 
 	getSerchingFilter: (searchName, page, name) => async (dispatch) => {
 		try {
+			dispatch(filmActionCreator.setIsLoading(true))
 			const data = await FilmsDataApi.getSerchFilm(searchName, page, name)
 			dispatch(filmActionCreator.setItems(data.results))
 			dispatch(filmActionCreator.setTotalResults(data.total_results))
 		}
 		catch (e) {
-			console.log(e)
+			dispatch(filmActionCreator.setError(e.response.data.errors))
+		}
+		finally {
+			dispatch(filmActionCreator.setIsLoading(false))
 		}
 	},
 
 
 	getAllGenres: (name) => async (dispatch) => {
 		try {
+			dispatch(filmActionCreator.setIsLoading(true))
 			const data = await FilmsDataApi.getGenresId(name)
 			dispatch(filmActionCreator.setGenresId(data.genres))
 		}
 		catch (e) {
-			console.log(e)
+			dispatch(filmActionCreator.setError(e.response.data.errors))
+		}
+		finally {
+			dispatch(filmActionCreator.setIsLoading(false))
 		}
 	}
 }

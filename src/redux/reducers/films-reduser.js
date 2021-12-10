@@ -33,7 +33,9 @@ const initialState = {
 				name: 'Fantasy'
 			}
 		]
-	}
+	},
+	error: '',
+	isLoading: false
 }
 
 const filmsReduser = (state = initialState, action) => {
@@ -73,6 +75,16 @@ const filmsReduser = (state = initialState, action) => {
 		case filmActionTypes.SET_GENRES_ID:
 			return {
 				...state, genresId: action.genresId
+			}
+
+		case filmActionTypes.SET_ERROR:
+			return {
+				...state, error: action.error
+			}
+
+		case filmActionTypes.SET_IS_LOADING:
+			return {
+				...state, isLoading: action.isLoading
 			}
 
 		default:
