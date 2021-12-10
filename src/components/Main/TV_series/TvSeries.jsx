@@ -12,7 +12,7 @@ import {
 	getFilter
 } from '../../../redux/selectors'
 import { useEffect } from 'react'
-import { getAllGenres, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser'
+import { filmActionCreator } from '../../../redux/action-creators/filmActionCreators'
 
 export const TvSeries = (props) => {
 	const hover = useSelector(getFilmHover)
@@ -28,27 +28,27 @@ export const TvSeries = (props) => {
 
 	useEffect(() => {
 		if (searchName === '') {
-			dispatch(getFilterPopular(page, filter, name))
+			dispatch(filmActionCreator.getFilterPopular(page, filter, name))
 		} else {
-			dispatch(getSerchingFilter(searchName, page, name))
+			dispatch(filmActionCreator.getSerchingFilter(searchName, page, name))
 		}
 	}, [page, searchName, filter])
 
 	useEffect(() => {
-		dispatch(getAllGenres('tv'))
+		dispatch(filmActionCreator.getAllGenres('tv'))
 	}, [])
 
 	const isHovered = (selected, id) => {
-		dispatch(setHover(selected))
-		dispatch(setFilmId(id))
+		dispatch(filmActionCreator.setHover(selected))
+		dispatch(filmActionCreator.setFilmId(id))
 	}
 
 	const unHovered = () => {
-		dispatch(setHover(false))
+		dispatch(filmActionCreator.setHover(false))
 	}
 
 	const setNewPage = (p) => {
-		dispatch(setPage(p))
+		dispatch(filmActionCreator.setPage(p))
 	}
 
 	return (

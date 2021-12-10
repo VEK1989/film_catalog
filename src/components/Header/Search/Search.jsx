@@ -1,7 +1,7 @@
 import style from './Search.module.css'
 import searchImg from '../../../assets/images/header-search.png'
 import { Formik, Form, Field } from 'formik'
-import { setFilterChange, setSearchName } from '../../../redux/search-reduser'
+import { searchActionCreators } from '../../../redux/action-creators/searchActionCreators'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSearchName } from '../../../redux/selectors'
 
@@ -11,8 +11,8 @@ export const Search = () => {
 	const dispatch = useDispatch()
 
 	const submit = (values, { setSubmitting }) => {
-		dispatch(setSearchName(values.term))
-		dispatch(setFilterChange(values.filter))
+		dispatch(searchActionCreators.setSearchName(values.term))
+		dispatch(searchActionCreators.setFilterChange(values.filter))
 		setSubmitting(false)
 	}
 

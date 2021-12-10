@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
-import filmsReduser from './films-reduser.js'
-import searchReduser from './search-reduser.js'
+import filmsReduser from './reducers/films-reduser'
+import searchReduser from './reducers/search-reduser'
 import thunk from 'redux-thunk'
 
 let redusers = combineReducers({

@@ -7,7 +7,7 @@ import { LikeButton } from '../Commons/LikeButton/LikeButton'
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProperties } from '../../redux/selectors'
-import { getFilmsProperty } from '../../redux/films-reduser'
+import { filmActionCreator } from '../../redux/action-creators/filmActionCreators'
 import { useEffect } from 'react'
 
 export const SerialsDetails = (props) => {
@@ -15,7 +15,7 @@ export const SerialsDetails = (props) => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(getFilmsProperty(props.filmId, props.name))
+		dispatch(filmActionCreator.getFilmsProperty(props.filmId, props.name))
 	}, [])
 
 	const filmData = useSelector(getProperties)
