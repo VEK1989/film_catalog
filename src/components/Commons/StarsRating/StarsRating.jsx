@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import StarRating from 'react-svg-star-rating';
-import style from './StarsRating.module.css';
+import { useState, useEffect } from 'react'
+import StarRating from 'react-svg-star-rating'
+import style from './StarsRating.module.css'
 
 export const StarsRating = (props) => {
-	const [rating, setRating] = useState(5);
+	const [rating, setRating] = useState(5)
 	const localId = window.localStorage.getItem(`${props.id}-rating`)
 
 	useEffect(() => {
@@ -31,5 +31,5 @@ export const StarsRating = (props) => {
 				initialRating={rating}
 			/>
 		</div>
-	);
-};
+	)
+}

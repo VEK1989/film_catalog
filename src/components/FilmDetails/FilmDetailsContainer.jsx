@@ -1,6 +1,6 @@
-import { withRouter } from 'react-router-dom';
-import { FilmDetails } from './FilmDetails';
-import { SerialsDetails } from './SerialsDetails';
+import { withRouter } from 'react-router-dom'
+import { FilmDetails } from './FilmDetails'
+import { SerialsDetails } from './SerialsDetails'
 
 
 const FilmDetailsContainer = (props) => {
@@ -15,7 +15,7 @@ const FilmDetailsContainer = (props) => {
 					: <SerialsDetails filmId={filmId} name={name} theme={props.theme} />
 			}
 		</div>
-	);
-};
+	)
+}
 
 export default withRouter(FilmDetailsContainer)

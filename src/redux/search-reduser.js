@@ -27,4 +27,4 @@ export const setSearchName = (query) => ({ type: SET_SEARCH_NAME, query })
 export const setFilterChange = (value) => ({ type: SET_FILTER_CHANGE, value })
 
 
-export default searchReduser;
+export default searchReduser

@@ -1,7 +1,7 @@
-import style from './Films.module.css';
-import { Pagination } from '../../Commons/Pagination/Pagination';
+import style from './Films.module.css'
+import { Pagination } from '../../Commons/Pagination/Pagination'
 import { Film } from './Film/Film';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
 import {
 	getFilmHover,
 	getItems,
@@ -10,9 +10,9 @@ import {
 	getPage,
 	getSearchName,
 	getFilter
-} from '../../../redux/selectors';
-import { useEffect } from 'react';
-import { getAllGenres, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser';
+} from '../../../redux/selectors'
+import { useEffect } from 'react'
+import { getAllGenres, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser'
 
 export const Films = (props) => {
 	const hover = useSelector(getFilmHover)
@@ -78,5 +78,5 @@ export const Films = (props) => {
 					page={page} />
 			</div>
 		</section>
-	);
+	)
 }

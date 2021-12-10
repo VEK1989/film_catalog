@@ -1,5 +1,5 @@
-import style from './Toggler.module.css';
-import cn from 'classnames';
+import style from './Toggler.module.css'
+import cn from 'classnames'
 
 export const Toggle = (props) => {
 	return (
@@ -7,5 +7,5 @@ export const Toggle = (props) => {
 			<span>Dark theme</span>
 			<div className={cn(style.switch_btn, { [style.switch_on]: props.theme === 'dark' })} onClick={props.toggleTheme}></div>
 		</div>
-	);
-};
+	)
+}

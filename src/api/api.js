@@ -1,4 +1,4 @@
-import * as axios from "axios";
+import * as axios from 'axios'
 
 const apiKey = '808cfd2d723af708f7da7e18f3b10d1e'
 const langEng = 'en-US'
@@ -9,13 +9,10 @@ const instans = axios.create({
 
 const errorProcessing = (err) => {
 	if (err.response) {
-		// client received an error response (5xx, 4xx)
 		console.log(err.response)
 	} else if (err.request) {
-		// client never received a response, or request never left 
 		console.log(err.request)
 	} else {
-		// anything else
 		console.log(err)
 	}
 }

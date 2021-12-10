@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
-import style from './LikeButton.module.css';
-import cn from 'classnames';
+import { useState, useEffect } from 'react'
+import style from './LikeButton.module.css'
+import cn from 'classnames'
 
 export const LikeButton = (props) => {
-	const [like, setLike] = useState(window.localStorage.getItem(`${props.id}-like`) || 'unLike');
+	const [like, setLike] = useState(window.localStorage.getItem(`${props.id}-like`) || 'unLike')
 
-	const toggleLike = () => {
+	const toggleLike = (e) => {
+		e.preventDefault()
 		if (like === 'unLike') {
 			window.localStorage.setItem(`${props.id}-like`, 'like')
 			setLike('like')
@@ -21,6 +22,6 @@ export const LikeButton = (props) => {
 	}, [props.id])
 
 	return (
-		<div className={cn(style.like, { [style.active]: like === 'like' })} onClick={toggleLike}>&#10084;</div>
-	);
-};
+		<div className={cn(style.like, { [style.active]: like === 'like' })} onClick={(e) => toggleLike(e)}>&#10084;</div>
+	)
+}

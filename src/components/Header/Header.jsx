@@ -1,8 +1,8 @@
-import style from './Header.module.css';
-import icon from '../../assets/images/header-icon.svg';
-import iconDark from '../../assets/images/logoDark.png';
-import { Search } from './Search/Search';
-import { Toggle } from '../Commons/ThemeToggle/Toggler/Toggler';
+import style from './Header.module.css'
+import icon from '../../assets/images/header-icon.svg'
+import iconDark from '../../assets/images/logoDark.png'
+import { Search } from './Search/Search'
+import { Toggle } from '../Commons/ThemeToggle/Toggler/Toggler'
 
 export const Header = (props) => {
 	return (
@@ -15,5 +15,5 @@ export const Header = (props) => {
 				<Toggle theme={props.theme} toggleTheme={props.toggleTheme} />
 			</div>
 		</div>
-	);
-};
+	)
+}

@@ -1,6 +1,6 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import filmsReduser from "./films-reduser.js";
-import searchReduser from "./search-reduser.js";
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import filmsReduser from './films-reduser.js'
+import searchReduser from './search-reduser.js'
 import thunk from 'redux-thunk'
 
 let redusers = combineReducers({
@@ -10,4 +10,4 @@ let redusers = combineReducers({
 
 let store = createStore(redusers, applyMiddleware(thunk))
 
-export default store;
+export default store

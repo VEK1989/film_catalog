@@ -1,4 +1,4 @@
-import { getFilmData, getGenresId, getPopularFilms, getSerchFilm } from "../api/api"
+import { getFilmData, getGenresId, getPopularFilms, getSerchFilm } from '../api/api'
 
 const SET_ITEMS = 'SET_ITEMS'
 const SET_PAGE = 'SET_PAGE'
@@ -17,28 +17,28 @@ let initialState = {
 	page: 1,
 	genresId: [],
 	properties: {
-		poster_path: "",
-		original_title: "",
-		overview: "",
-		release_date: "",
+		poster_path: '',
+		original_title: '',
+		overview: '',
+		release_date: '',
 		runtime: 95,
 		vote_average: 2.2,
 		genres: [
 			{
 				id: 16,
-				name: "Animation"
+				name: 'Animation'
 			},
 			{
 				id: 35,
-				name: "Comedy"
+				name: 'Comedy'
 			},
 			{
 				id: 10751,
-				name: "Family"
+				name: 'Family'
 			},
 			{
 				id: 14,
-				name: "Fantasy"
+				name: 'Fantasy'
 			}
 		]
 	}
@@ -130,4 +130,4 @@ export const getAllGenres = (name) => {
 	}
 }
 
-export default filmsReduser;
+export default filmsReduser

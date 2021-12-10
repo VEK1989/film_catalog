@@ -1,9 +1,9 @@
-import style from './Search.module.css';
-import searchImg from '../../../assets/images/header-search.png';
-import { Formik, Form, Field } from 'formik';
-import { setFilterChange, setSearchName } from '../../../redux/search-reduser';
-import { useDispatch, useSelector } from 'react-redux';
-import { getSearchName } from '../../../redux/selectors';
+import style from './Search.module.css'
+import searchImg from '../../../assets/images/header-search.png'
+import { Formik, Form, Field } from 'formik'
+import { setFilterChange, setSearchName } from '../../../redux/search-reduser'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSearchName } from '../../../redux/selectors'
 
 export const Search = () => {
 	const searchName = useSelector(getSearchName)
@@ -38,5 +38,5 @@ export const Search = () => {
 				</Form>
 			)}
 		</Formik>
-	);
-};
+	)
+}

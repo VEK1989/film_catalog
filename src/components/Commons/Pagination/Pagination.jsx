@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import style from './Pagination.module.css';
-import cn from 'classnames';
+import { useState } from 'react'
+import style from './Pagination.module.css'
+import cn from 'classnames'
 
 export const Pagination = (props) => {
 	const portionSize = 5
 
-	const pagesCount = Math.ceil(props.totalResults / props.pageSize) // колличество страниц с делением в большую сторону
+	const pagesCount = Math.ceil(props.totalResults / props.pageSize)
 
 	const pages = []
 	for (let i = 1; i <= pagesCount; i++) {
 		pages.push(i)
 	}
 
-	const portionCount = Math.ceil(pagesCount / portionSize) // колличество отображаемых страниц (порций)
+	const portionCount = Math.ceil(pagesCount / portionSize)
 	const [portionNumber, setPortionNumber] = useState(1)
-	const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1 // крайний левый номер страницы
-	const rightPortionPageNumber = portionNumber * portionSize // крайний правый
+	const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
+	const rightPortionPageNumber = portionNumber * portionSize
 
 	return (
 		<div className={style.paginations}>
@@ -41,5 +41,5 @@ export const Pagination = (props) => {
 				</span>
 			}
 		</div>
-	);
-};
+	)
+}

@@ -1,14 +1,14 @@
-import style from './FilmDetails.module.css';
-import { NavLink } from 'react-router-dom';
-import altImg from '../../assets/images/altTitle.svg';
-import altImgDark from '../../assets/images/altPhotoDark.png';
-import { StarsRating } from '../Commons/StarsRating/StarsRating';
-import { LikeButton } from '../Commons/LikeButton/LikeButton';
-import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProperties } from '../../redux/selectors';
-import { getFilmsProperty } from '../../redux/films-reduser';
-import { useEffect } from 'react';
+import style from './FilmDetails.module.css'
+import { NavLink } from 'react-router-dom'
+import altImg from '../../assets/images/altTitle.svg'
+import altImgDark from '../../assets/images/altPhotoDark.png'
+import { StarsRating } from '../Commons/StarsRating/StarsRating'
+import { LikeButton } from '../Commons/LikeButton/LikeButton'
+import cn from 'classnames'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProperties } from '../../redux/selectors'
+import { getFilmsProperty } from '../../redux/films-reduser'
+import { useEffect } from 'react'
 
 export const FilmDetails = (props) => {
 
@@ -34,7 +34,7 @@ export const FilmDetails = (props) => {
 						: <div className={style.fuckYou}>
 							<div>
 								<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
-								<p>fuck you</p>
+								<p>Oops!</p>
 							</div>
 						</div>
 				}
@@ -75,5 +75,5 @@ export const FilmDetails = (props) => {
 				<LikeButton id={filmData.id} />
 			</div>
 		</div>
-	);
-};
+	)
+}

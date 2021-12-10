@@ -1,11 +1,11 @@
-import style from './Film.module.css';
-import altImg from '../../../../assets/images/altTitle.svg';
-import altImgDark from '../../../../assets/images/altPhotoDark.png';
-import { NavLink } from 'react-router-dom';
-import star from '../../../../assets/images/star.png';
-import { LikeButton } from '../../../Commons/LikeButton/LikeButton';
-import { useSelector } from 'react-redux';
-import { getAllGenresId } from '../../../../redux/selectors';
+import style from './Film.module.css'
+import altImg from '../../../../assets/images/altTitle.svg'
+import altImgDark from '../../../../assets/images/altPhotoDark.png'
+import { NavLink } from 'react-router-dom'
+import star from '../../../../assets/images/star.png'
+import { LikeButton } from '../../../Commons/LikeButton/LikeButton'
+import { useSelector } from 'react-redux'
+import { getAllGenresId } from '../../../../redux/selectors'
 
 export const Film = (props) => {
 	const genresId = useSelector(getAllGenresId)
@@ -16,8 +16,8 @@ export const Film = (props) => {
 
 	return (
 		<div onMouseEnter={props.isHovered} onMouseLeave={props.unHovered} >
-			{props.hover.id === props.id ? (
-				<div className={style.filmItem}>
+			{props.hover.id === props.id
+				? <div className={style.filmItem}>
 					<NavLink to={`/details/${props.name}/${props.id}`} className={style.link}>
 						<div className={style.filmInfo}>
 							<LikeButton id={props.id} className={style.like} />
@@ -42,15 +42,16 @@ export const Film = (props) => {
 						</div>
 					</NavLink>
 					<span className={style.title}>{props.title}</span>
-				</div>)
+				</div>
 
-				: (<div className={style.filmItem} >
+				: <div className={style.filmItem} >
 					{
-						props.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt='#' width='250px' height='330px' />
+						props.poster_path
+							? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt='#' width='250px' height='330px' />
 							: <div className={style.fuckYou}>
 								<div>
-									<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
-									<p>fuck you</p>
+									<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Oops!' width='100px' height='100px' />
+									<p>Oops!</p>
 								</div>
 							</div>
 					}
@@ -60,9 +61,9 @@ export const Film = (props) => {
 							? props.title
 							: 'Name is not found'
 					}</span>
-				</div>)
+				</div>
 			}
 		</div >
-	);
+	)
 
-};
+}

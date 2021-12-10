@@ -1,12 +1,12 @@
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import './App.css';
-import { Header } from './components/Header/Header';
-import { Main } from './components/Main/Main';
-import FilmDetailsContainer from './components/FilmDetails/FilmDetailsContainer';
-import { useDarkMode } from './components/Commons/ThemeToggle/useDarkMode';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+import './App.css'
+import { Header } from './components/Header/Header'
+import { Main } from './components/Main/Main'
+import FilmDetailsContainer from './components/FilmDetails/FilmDetailsContainer'
+import { useDarkMode } from './components/Commons/ThemeToggle/useDarkMode'
 
 const App = () => {
-  const [theme, themeToggler] = useDarkMode();
+  const [theme, themeToggler] = useDarkMode()
 
   return (
     < BrowserRouter >
@@ -24,4 +24,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

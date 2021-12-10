@@ -1,7 +1,7 @@
-import style from './TvSeries.module.css';
-import { Pagination } from '../../Commons/Pagination/Pagination';
-import { Film } from '../Films/Film/Film';
-import { useDispatch, useSelector } from 'react-redux';
+import style from './TvSeries.module.css'
+import { Pagination } from '../../Commons/Pagination/Pagination'
+import { Film } from '../Films/Film/Film'
+import { useDispatch, useSelector } from 'react-redux'
 import {
 	getFilmHover,
 	getItems,
@@ -10,9 +10,9 @@ import {
 	getPage,
 	getSearchName,
 	getFilter
-} from '../../../redux/selectors';
-import { useEffect } from 'react';
-import { getAllGenres, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser';
+} from '../../../redux/selectors'
+import { useEffect } from 'react'
+import { getAllGenres, getFilterPopular, getSerchingFilter, setFilmId, setHover, setPage } from '../../../redux/films-reduser'
 
 export const TvSeries = (props) => {
 	const hover = useSelector(getFilmHover)
@@ -78,5 +78,5 @@ export const TvSeries = (props) => {
 					page={page} />
 			</div>
 		</section>
-	);
+	)
 }
