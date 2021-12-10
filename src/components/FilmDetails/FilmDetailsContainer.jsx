@@ -3,16 +3,16 @@ import { FilmDetails } from './FilmDetails'
 import { SerialsDetails } from './SerialsDetails'
 
 
-const FilmDetailsContainer = (props) => {
-	const filmId = props.match.params.filmId
-	const name = props.match.params.film
+const FilmDetailsContainer = ({ theme, match }) => {
+	const filmId = match.params.filmId
+	const name = match.params.film
 
 	return (
 		<div>
 			{
 				name === 'movie'
-					? <FilmDetails filmId={filmId} name={name} theme={props.theme} />
-					: <SerialsDetails filmId={filmId} name={name} theme={props.theme} />
+					? <FilmDetails filmId={filmId} name={name} theme={theme} />
+					: <SerialsDetails filmId={filmId} name={name} theme={theme} />
 			}
 		</div>
 	)

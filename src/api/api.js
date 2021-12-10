@@ -7,52 +7,44 @@ const instans = axios.create({
 	baseURL: 'https://api.themoviedb.org/3/'
 })
 
-const errorProcessing = (err) => {
-	if (err.response) {
-		console.log(err.response)
-	} else if (err.request) {
-		console.log(err.request)
-	} else {
-		console.log(err)
+export class FilmsDataApi {
+	static async getPopularFilms(page, value = 'popular', name) {
+		const response = await instans.get(`${name}/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
+		return response.data
+	}
+
+	static async getFilmData(filmId, name) {
+		const response = await instans.get(`${name}/${filmId}?api_key=${apiKey}&language=${langEng}`)
+		return response.data
+	}
+
+	static async getSerchFilm(query, page, name) {
+		const response = await instans.get(`search/${name}?api_key=${apiKey}&query=${query}&page=${page}`)
+		return response.data
+	}
+
+	static async getGenresId(name) {
+		const response = await instans.get(`genre/${name}/list?api_key=${apiKey}&language=${langEng}`)
+		return response.data
 	}
 }
 
-export const getPopularFilms = (page, value = 'popular', name) => {
-	return instans.get(`${name}/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
-		.then(response => {
-			return response.data
-		})
-		.catch(err => {
-			errorProcessing(err)
-		})
+export const getPopularFilms = async (page, value = 'popular', name) => {
+	const response = await instans.get(`${name}/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`)
+	return response.data
 }
 
-export const getFilmData = (filmId, name) => {
-	return instans.get(`${name}/${filmId}?api_key=${apiKey}&language=${langEng}`)
-		.then(response => {
-			return response.data
-		})
-		.catch(err => {
-			errorProcessing(err)
-		})
+export const getFilmData = async (filmId, name) => {
+	const response = await instans.get(`${name}/${filmId}?api_key=${apiKey}&language=${langEng}`)
+	return response.data
 }
 
-export const getSerchFilm = (query, page, name) => {
-	return instans.get(`search/${name}?api_key=${apiKey}&query=${query}&page=${page}`)
-		.then(response => {
-			return response.data
-		})
-		.catch(err => {
-			errorProcessing(err)
-		})
+export const getSerchFilm = async (query, page, name) => {
+	const response = await instans.get(`search/${name}?api_key=${apiKey}&query=${query}&page=${page}`)
+	return response.data
 }
 
-export const getGenresId = (name) => {
-	return instans.get(`genre/${name}/list?api_key=${apiKey}&language=${langEng}`)
-		.then(response => {
-			return response.data
-		})
-		.catch(err => {
-			errorProcessing(err)
-		})
+export const getGenresId = async (name) => {
+	const response = await instans.get(`genre/${name}/list?api_key=${apiKey}&language=${langEng}`)
+	return response.data
 }

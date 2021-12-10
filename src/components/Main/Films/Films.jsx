@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { filmActionCreator } from '../../../redux/action-creators/filmActionCreators'
 
-export const Films = (props) => {
+export const Films = ({ theme }) => {
 	const { hover, items, pageSize, totalResults, page } = useSelector(state => state.films)
 	const { searchName, filter } = useSelector(state => state.search)
 	const name = 'movie'
@@ -52,7 +52,7 @@ export const Films = (props) => {
 							release_date={item.release_date}
 							vote_average={item.vote_average}
 							genres={item.genre_ids}
-							theme={props.theme}
+							theme={theme}
 							name={name} />
 					})
 				}

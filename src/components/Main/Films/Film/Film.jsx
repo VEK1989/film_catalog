@@ -6,20 +6,20 @@ import star from '../../../../assets/images/star.png'
 import { LikeButton } from '../../../Commons/LikeButton/LikeButton'
 import { useSelector } from 'react-redux'
 
-export const Film = (props) => {
+export const Film = ({ isHovered, unHovered, poster_path, title, id, hover, release_date, vote_average, genres, theme, name }) => {
 	const { genresId } = useSelector(state => state.films)
 
 	const genre = genresId.filter((n) => {
-		return props.genres.indexOf(n.id) > -1
+		return genres.indexOf(n.id) > -1
 	})
 
 	return (
-		<div onMouseEnter={props.isHovered} onMouseLeave={props.unHovered} >
-			{props.hover.id === props.id
+		<div onMouseEnter={isHovered} onMouseLeave={unHovered} >
+			{hover.id === id
 				? <div className={style.filmItem}>
-					<NavLink to={`/details/${props.name}/${props.id}`} className={style.link}>
+					<NavLink to={`/details/${name}/${id}`} className={style.link}>
 						<div className={style.filmInfo}>
-							<LikeButton id={props.id} className={style.like} />
+							<LikeButton id={id} className={style.like} />
 							<div className={style.info}>
 								<div>
 									{
@@ -31,33 +31,33 @@ export const Film = (props) => {
 										</div>
 											: null
 									}
-									<div>{props.release_date
-										? props.release_date.split(['-'])[0]
+									<div>{release_date
+										? release_date.split(['-'])[0]
 										: ''
 									}</div>
 								</div>
 							</div>
-							<div className={style.rating}>{props.vote_average} <img src={star} alt='star' width='14px' height='14px' /></div>
+							<div className={style.rating}>{vote_average} <img src={star} alt='star' width='14px' height='14px' /></div>
 						</div>
 					</NavLink>
-					<span className={style.title}>{props.title}</span>
+					<span className={style.title}>{title}</span>
 				</div>
 
 				: <div className={style.filmItem} >
 					{
-						props.poster_path
-							? <img src={`https://www.themoviedb.org/t/p/original${props.poster_path}`} alt='#' width='250px' height='330px' />
+						poster_path
+							? <img src={`https://www.themoviedb.org/t/p/original${poster_path}`} alt='#' width='250px' height='330px' />
 							: <div className={style.fuckYou}>
 								<div>
-									<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Oops!' width='100px' height='100px' />
+									<img src={theme === 'dark' ? altImgDark : altImg} alt='Oops!' width='100px' height='100px' />
 									<p>Oops!</p>
 								</div>
 							</div>
 					}
 
 					<span className={style.title}>{
-						props.title
-							? props.title
+						title
+							? title
 							: 'Name is not found'
 					}</span>
 				</div>

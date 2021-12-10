@@ -9,18 +9,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { filmActionCreator } from '../../redux/action-creators/filmActionCreators'
 import { useEffect } from 'react'
 
-export const FilmDetails = (props) => {
+export const FilmDetails = ({ filmId, name, theme }) => {
 	const { properties } = useSelector(state => state.films)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(filmActionCreator.getFilmsProperty(props.filmId, props.name))
+		dispatch(filmActionCreator.getFilmsProperty(filmId, name))
 	}, [])
 
 	return (
 		<div className={style.container}>
 			<div className={style.header}>
-				<NavLink to='/films' className={cn(style.back, { [style.dark]: props.theme === 'dark' })} >
+				<NavLink to='/films' className={cn(style.back, { [style.dark]: theme === 'dark' })} >
 					<span>{'<'} Back</span>
 				</NavLink>
 			</div>
@@ -30,14 +30,14 @@ export const FilmDetails = (props) => {
 					properties.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${properties.poster_path}`} alt='poster' width='380px' height='573px' className={style.poster} />
 						: <div className={style.fuckYou}>
 							<div>
-								<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
+								<img src={theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
 								<p>Oops!</p>
 							</div>
 						</div>
 				}
 			</div>
 			<span className={style.name}>{
-				props.name === 'tv' && properties.title
+				name === 'tv' && properties.title
 					? properties.title
 					: ''
 			}</span>

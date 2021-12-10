@@ -1,5 +1,5 @@
 import { filmActionTypes } from '../actionTypes/filmActionTypes'
-import { getFilmData, getGenresId, getPopularFilms, getSerchFilm } from '../../api/api'
+import { FilmsDataApi } from '../../api/api'
 
 
 export const filmActionCreator = {
@@ -13,7 +13,7 @@ export const filmActionCreator = {
 
 	getFilmsProperty: (filmId, name) => async (dispatch) => {
 		try {
-			const data = await getFilmData(filmId, name)
+			const data = await FilmsDataApi.getFilmData(filmId, name)
 			dispatch(filmActionCreator.setProperties(data))
 		}
 		catch (e) {
@@ -23,7 +23,7 @@ export const filmActionCreator = {
 
 	getFilterPopular: (page, filter, name) => async (dispatch) => {
 		try {
-			const data = await getPopularFilms(page, filter, name)
+			const data = await FilmsDataApi.getPopularFilms(page, filter, name)
 			dispatch(filmActionCreator.setItems(data.results))
 			dispatch(filmActionCreator.setTotalResults(data.total_results))
 		}
@@ -34,7 +34,7 @@ export const filmActionCreator = {
 
 	getSerchingFilter: (searchName, page, name) => async (dispatch) => {
 		try {
-			const data = await getSerchFilm(searchName, page, name)
+			const data = await FilmsDataApi.getSerchFilm(searchName, page, name)
 			dispatch(filmActionCreator.setItems(data.results))
 			dispatch(filmActionCreator.setTotalResults(data.total_results))
 		}
@@ -46,7 +46,7 @@ export const filmActionCreator = {
 
 	getAllGenres: (name) => async (dispatch) => {
 		try {
-			const data = await getGenresId(name)
+			const data = await FilmsDataApi.getGenresId(name)
 			dispatch(filmActionCreator.setGenresId(data.genres))
 		}
 		catch (e) {
