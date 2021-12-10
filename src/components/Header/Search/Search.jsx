@@ -3,10 +3,9 @@ import searchImg from '../../../assets/images/header-search.png'
 import { Formik, Form, Field } from 'formik'
 import { searchActionCreators } from '../../../redux/action-creators/searchActionCreators'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSearchName } from '../../../redux/selectors'
 
 export const Search = () => {
-	const searchName = useSelector(getSearchName)
+	const { searchName } = useSelector(state => state.search)
 
 	const dispatch = useDispatch()
 

@@ -2,26 +2,12 @@ import style from './Films.module.css'
 import { Pagination } from '../../Commons/Pagination/Pagination'
 import { Film } from './Film/Film';
 import { useDispatch, useSelector } from 'react-redux'
-import {
-	getFilmHover,
-	getItems,
-	getPageSize,
-	getTotalResults,
-	getPage,
-	getSearchName,
-	getFilter
-} from '../../../redux/selectors'
 import { useEffect } from 'react'
 import { filmActionCreator } from '../../../redux/action-creators/filmActionCreators'
 
 export const Films = (props) => {
-	const hover = useSelector(getFilmHover)
-	const items = useSelector(getItems)
-	const pageSize = useSelector(getPageSize)
-	const totalResults = useSelector(getTotalResults)
-	const page = useSelector(getPage)
-	const searchName = useSelector(getSearchName)
-	const filter = useSelector(getFilter)
+	const { hover, items, pageSize, totalResults, page } = useSelector(state => state.films)
+	const { searchName, filter } = useSelector(state => state.search)
 	const name = 'movie'
 
 	const dispatch = useDispatch()

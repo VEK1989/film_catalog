@@ -5,10 +5,9 @@ import { NavLink } from 'react-router-dom'
 import star from '../../../../assets/images/star.png'
 import { LikeButton } from '../../../Commons/LikeButton/LikeButton'
 import { useSelector } from 'react-redux'
-import { getAllGenresId } from '../../../../redux/selectors'
 
 export const Film = (props) => {
-	const genresId = useSelector(getAllGenresId)
+	const { genresId } = useSelector(state => state.films)
 
 	const genre = genresId.filter((n) => {
 		return props.genres.indexOf(n.id) > -1

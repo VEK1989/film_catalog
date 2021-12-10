@@ -2,26 +2,12 @@ import style from './TvSeries.module.css'
 import { Pagination } from '../../Commons/Pagination/Pagination'
 import { Film } from '../Films/Film/Film'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-	getFilmHover,
-	getItems,
-	getPageSize,
-	getTotalResults,
-	getPage,
-	getSearchName,
-	getFilter
-} from '../../../redux/selectors'
 import { useEffect } from 'react'
 import { filmActionCreator } from '../../../redux/action-creators/filmActionCreators'
 
 export const TvSeries = (props) => {
-	const hover = useSelector(getFilmHover)
-	const items = useSelector(getItems)
-	const pageSize = useSelector(getPageSize)
-	const totalResults = useSelector(getTotalResults)
-	const page = useSelector(getPage)
-	const searchName = useSelector(getSearchName)
-	const filter = useSelector(getFilter)
+	const { hover, items, pageSize, totalResults, page } = useSelector(state => state.films)
+	const { searchName, filter } = useSelector(state => state.search)
 	const name = 'tv'
 
 	const dispatch = useDispatch()

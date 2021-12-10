@@ -6,19 +6,16 @@ import { StarsRating } from '../Commons/StarsRating/StarsRating'
 import { LikeButton } from '../Commons/LikeButton/LikeButton'
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProperties } from '../../redux/selectors'
 import { filmActionCreator } from '../../redux/action-creators/filmActionCreators'
 import { useEffect } from 'react'
 
 export const SerialsDetails = (props) => {
-
+	const { properties } = useSelector(state => state.films)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
 		dispatch(filmActionCreator.getFilmsProperty(props.filmId, props.name))
 	}, [])
-
-	const filmData = useSelector(getProperties)
 
 	return (
 		<div className={style.container}>
@@ -30,7 +27,7 @@ export const SerialsDetails = (props) => {
 
 			<div className={style.poster} >
 				{
-					filmData.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${filmData.poster_path}`} alt='poster' width='380px' height='573px' className={style.poster} />
+					properties.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${properties.poster_path}`} alt='poster' width='380px' height='573px' className={style.poster} />
 						: <div className={style.fuckYou}>
 							<div>
 								<img src={props.theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
@@ -39,11 +36,11 @@ export const SerialsDetails = (props) => {
 						</div>
 				}
 			</div>
-			<span className={style.name}>{filmData.name
-				? filmData.name
+			<span className={style.name}>{properties.name
+				? properties.name
 				: ''
 			}</span>
-			<div className={style.rating}><StarsRating rating={filmData.vote_average} id={filmData.id} /></div>
+			<div className={style.rating}><StarsRating rating={properties.vote_average} id={properties.id} /></div>
 			<div className={style.props}>
 				<span className={style.props_name}>Genre:</span>
 				<span className={style.props_name}>Year:</span>
@@ -52,26 +49,26 @@ export const SerialsDetails = (props) => {
 			<div className={style.value}>
 				<span className={style.value_name}>
 					{
-						(filmData.genres.length > 1) ? <span>{filmData.genres[0].name}/{filmData.genres[1].name}</span>
-							: <span>{filmData.genres[0].name}</span>
+						(properties.genres.length > 1) ? <span>{properties.genres[0].name}/{properties.genres[1].name}</span>
+							: <span>{properties.genres[0].name}</span>
 					}
 				</span>
 				<span className={style.value_name}>
 					{
-						filmData.first_air_date
-							? filmData.first_air_date.split(['-'])[0]
+						properties.first_air_date
+							? properties.first_air_date.split(['-'])[0]
 							: ''
 					}
 				</span>
 				<span className={style.value_name}>{
-					filmData.episode_run_time
-						? filmData.episode_run_time
+					properties.episode_run_time
+						? properties.episode_run_time
 						: ''
 				}minutes</span>
 			</div>
-			<span className={style.descriotion}>{filmData.overview}</span>
+			<span className={style.descriotion}>{properties.overview}</span>
 			<div className={style.like}>
-				<LikeButton id={filmData.id} />
+				<LikeButton id={properties.id} />
 			</div>
 		</div>
 	);
