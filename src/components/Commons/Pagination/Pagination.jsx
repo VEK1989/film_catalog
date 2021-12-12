@@ -18,7 +18,7 @@ export const Pagination = ({ totalResults, pageSize, page, setPage }) => {
 	const rightPortionPageNumber = portionNumber * portionSize
 
 	return (
-		<div className={style.paginations}>
+		<nav className={style.paginations}>
 			{
 				portionNumber > 1 &&
 				<span>
@@ -40,6 +40,6 @@ export const Pagination = ({ totalResults, pageSize, page, setPage }) => {
 					<button onClick={() => { setPortionNumber(portionNumber + 1) }} className={style.button}>{'>'}</button>
 				</span>
 			}
-		</div>
+		</nav>
 	)
 }

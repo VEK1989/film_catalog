@@ -8,13 +8,13 @@ const FilmDetailsContainer = ({ theme, match }) => {
 	const name = match.params.film
 
 	return (
-		<div>
+		<main>
 			{
 				name === 'movie'
 					? <FilmDetails filmId={filmId} name={name} theme={theme} />
 					: <SerialsDetails filmId={filmId} name={name} theme={theme} />
 			}
-		</div>
+		</main>
 	)
 }
 

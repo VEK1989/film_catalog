@@ -6,14 +6,14 @@ import { Toggle } from '../Commons/ThemeToggle/Toggler/Toggler'
 
 export const Header = ({ theme, toggleTheme }) => {
 	return (
-		<div className={style.header}>
+		<header className={style.header}>
 			<div className={style.wrapper}>
-				<div className={style.header_leftSide}>
+				<figure className={style.header_leftSide}>
 					<img src={theme === 'dark' ? iconDark : icon} alt='icon' width='30px' height='30px' />
 					<Search />
-				</div>
+				</figure>
 				<Toggle theme={theme} toggleTheme={toggleTheme} />
 			</div>
-		</div>
+		</header>
 	)
 }

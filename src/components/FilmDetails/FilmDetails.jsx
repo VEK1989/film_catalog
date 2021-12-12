@@ -18,18 +18,20 @@ export const FilmDetails = ({ filmId, name, theme }) => {
 		dispatch(filmActionCreator.getFilmsProperty(filmId, name))
 	}, [])
 
+	console.log(properties)
+
 	return (
-		<div>
+		<section>
 			{
 				!isLoading
 					? <div className={style.container}>
-						<div className={style.header}>
+						<nav className={style.header}>
 							<NavLink to='/films' className={cn(style.back, { [style.dark]: theme === 'dark' })} >
 								<span>{'<'} Back</span>
 							</NavLink>
-						</div>
+						</nav>
 
-						<div className={style.poster} >
+						<figure className={style.poster} >
 							{
 								properties.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${properties.poster_path}`} alt='poster' width='380px' height='573px' className={style.poster} />
 									: <div className={style.fuckYou}>
@@ -39,25 +41,34 @@ export const FilmDetails = ({ filmId, name, theme }) => {
 										</div>
 									</div>
 							}
-						</div>
+						</figure>
 						<span className={style.name}>{
-							name === 'tv' && properties.title
+							properties.title
 								? properties.title
 								: ''
 						}</span>
 						<div className={style.rating}><StarsRating rating={properties.vote_average} id={properties.id} /></div>
-						<div className={style.props}>
-							<span className={style.props_name}>Genre:</span>
+						<aside className={style.props}>
+							{
+								properties.genres > 0
+									? <span className={style.props_name}>Genre:</span>
+									: null
+							}
 							<span className={style.props_name}>Year:</span>
 							<span className={style.props_name}>Running time:</span>
-						</div>
-						<div className={style.value}>
-							<span className={style.value_name}>
-								{
-									(properties.genres.length > 1) ? <span>{properties.genres[0].name}/{properties.genres[1].name}</span>
-										: <span>{properties.genres[0].name}</span>
-								}
-							</span>
+						</aside>
+						<aside className={style.value}>
+							{
+								properties.genres.length > 0
+									? <span className={style.value_name}>
+										{
+											properties.genres.length > 1
+												? <span>{properties.genres[0].name}/{properties.genres[1].name}</span>
+												: <span>{properties.genres[0].name}</span>
+										}
+									</span>
+									: null
+							}
 							<span className={style.value_name}>
 								{
 									properties.release_date
@@ -70,8 +81,8 @@ export const FilmDetails = ({ filmId, name, theme }) => {
 									? properties.runtime
 									: ''
 							}minutes</span>
-						</div>
-						<span className={style.descriotion}>{properties.overview}</span>
+						</aside>
+						<article className={style.descriotion}>{properties.overview}</article>
 						<div className={style.like}>
 							<LikeButton id={properties.id} />
 						</div>
@@ -80,6 +91,6 @@ export const FilmDetails = ({ filmId, name, theme }) => {
 						<img src={loading} alt='Loading...' width='150px' height='150px' />
 					</div>
 			}
-		</div>
+		</section>
 	)
 }

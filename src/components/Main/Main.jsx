@@ -8,14 +8,14 @@ import cn from 'classnames'
 export const Main = ({ theme }) => {
 	return (
 		<div>
-			<div className={style.links}>
+			<nav className={style.links}>
 				<NavLink to='/films' activeClassName={cn(style.active, { [style.dark]: theme === 'dark' })} className={style.link} >Films</NavLink>
 				<NavLink to='/tv_series' activeClassName={cn(style.active, { [style.dark]: theme === 'dark' })} className={style.link} >TV series</NavLink>
-			</div>
-			<div>
+			</nav>
+			<main>
 				<Route path='/films' render={() => <Films theme={theme} />} />
 				<Route path='/tv_series' render={() => <TvSeries />} />
-			</div>
+			</main>
 		</div>
 	)
 }

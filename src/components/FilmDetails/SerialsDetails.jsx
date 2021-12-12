@@ -19,42 +19,54 @@ export const SerialsDetails = ({ filmId, name, theme }) => {
 	}, [])
 
 	return (
-		<div>
+		<section>
 			{
 				!isLoading
-					? <div className={style.container}>
-						<div className={style.header}>
+					? <section className={style.container}>
+						<nav className={style.header}>
 							<NavLink to='/tv_series' className={cn(style.back, { [style.dark]: theme === 'dark' })} >
 								<span>{'<'} Back</span>
 							</NavLink>
-						</div>
+						</nav>
 
-						<div className={style.poster} >
+						<figure className={style.poster} >
 							{
 								properties.poster_path ? <img src={`https://www.themoviedb.org/t/p/original${properties.poster_path}`} alt='poster' width='380px' height='573px' className={style.poster} />
 									: <div className={style.fuckYou}>
 										<div>
 											<img src={theme === 'dark' ? altImgDark : altImg} alt='Fuck you' width='100px' height='100px' />
-											<p>fuck you</p>
+											<p>Oops!</p>
 										</div>
 									</div>
 							}
-						</div>
-						<span className={style.name}>{properties.name
-							? properties.name
-							: ''
+						</figure>
+						<span className={style.name}>{
+							properties.name
+								? properties.name
+								: ''
 						}</span>
 						<div className={style.rating}><StarsRating rating={properties.vote_average} id={properties.id} /></div>
-						<div className={style.props}>
-							<span className={style.props_name}>Genre:</span>
+						<aside className={style.props}>
+							{
+								properties.genres.length > 0
+									? <span className={style.props_name}>Genre:</span>
+									: null
+							}
 							<span className={style.props_name}>Year:</span>
 							<span className={style.props_name}>Running time:</span>
-						</div>
-						<div className={style.value}>
+						</aside>
+						<aside className={style.value}>
 							<span className={style.value_name}>
 								{
-									(properties.genres.length > 1) ? <span>{properties.genres[0].name}/{properties.genres[1].name}</span>
-										: <span>{properties.genres[0].name}</span>
+									properties.genres.length > 0
+										? <span className={style.value_name}>
+											{
+												properties.genres.length > 1
+													? <span>{properties.genres[0].name}/{properties.genres[1].name}</span>
+													: <span>{properties.genres[0].name}</span>
+											}
+										</span>
+										: null
 								}
 							</span>
 							<span className={style.value_name}>
@@ -64,21 +76,23 @@ export const SerialsDetails = ({ filmId, name, theme }) => {
 										: ''
 								}
 							</span>
-							<span className={style.value_name}>{
-								properties.episode_run_time
-									? properties.episode_run_time
-									: ''
-							}minutes</span>
-						</div>
-						<span className={style.descriotion}>{properties.overview}</span>
+							<span className={style.value_name}>
+								{
+									properties.episode_run_time
+										? properties.episode_run_time
+										: ''
+								}
+								minutes</span>
+						</aside>
+						<article className={style.descriotion}>{properties.overview}</article>
 						<div className={style.like}>
 							<LikeButton id={properties.id} />
 						</div>
-					</div>
+					</section>
 					: <div className={style.loading}>
 						<img src={loading} alt='Loading...' width='150px' height='150px' />
 					</div>
 			}
-		</div>
+		</section>
 	);
 };

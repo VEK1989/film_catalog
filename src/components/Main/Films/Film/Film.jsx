@@ -15,7 +15,7 @@ export const Film = ({ isHovered, unHovered, poster_path, title, id, hover, rele
 	})
 
 	return (
-		<div>
+		<article>
 			{
 				!isLoading
 					? <div onMouseEnter={isHovered} onMouseLeave={unHovered} >
@@ -47,7 +47,7 @@ export const Film = ({ isHovered, unHovered, poster_path, title, id, hover, rele
 								<span className={style.title}>{title}</span>
 							</div>
 
-							: <div className={style.filmItem} >
+							: <figure className={style.filmItem} >
 								{
 									poster_path
 										? <img src={`https://www.themoviedb.org/t/p/original${poster_path}`} alt='#' width='250px' height='330px' />
@@ -59,19 +59,19 @@ export const Film = ({ isHovered, unHovered, poster_path, title, id, hover, rele
 										</div>
 								}
 
-								<span className={style.title}>{
+								<figcaption className={style.title}>{
 									title
 										? title
 										: 'Name is not found'
-								}</span>
-							</div>
+								}</figcaption>
+							</figure>
 						}
 					</div >
 					: <div className={style.loading}>
 						<img src={loading} alt='Loading' width='100px' height='100px' />
 					</div>
 			}
-		</div>
+		</article>
 	)
 
 }
