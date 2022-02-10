@@ -1,0 +1,13 @@
+.rating {
+  display: flex;
+  justify-content: center;
+}
+
+.rating_counter {
+  width: 20px;
+  margin: 0 9px 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 21px;
+}

@@ -1,0 +1,71 @@
+.filmInfo {
+  margin: 0 0 4px 0;
+  width: 250px;
+  height: 330px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template-columns: auto 50px;
+  grid-template-rows: auto 80px;
+  grid-template-areas:
+    ". ."
+    "info rating";
+  position: relative;
+}
+.like {
+  margin: 0;
+  z-index: 10;
+  right: 25px;
+  height: 10px;
+}
+
+.filmItem {
+  width: 250px;
+  height: 380px;
+  margin: 5px;
+}
+
+.link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+.info {
+  grid-area: info;
+  margin: 0 0 0 10px;
+}
+
+.rating {
+  grid-area: rating;
+  margin: 42px 0 0 0;
+}
+
+.fuckYou {
+  width: 250px;
+  height: 330px;
+  border: 1px solid #503131;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.loading {
+  width: 250px;
+  height: 380px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

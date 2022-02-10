@@ -1,0 +1,41 @@
+.searchArea {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  width: 280px;
+  border: 0.5px solid #503131;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 15px 4px 15px;
+  margin: 0 4px 0 40px;
+}
+
+.input_area {
+  border: 0px;
+}
+
+.input_area:active,
+:hover,
+:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+.select_area {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  margin: 0 2px 0 0;
+}

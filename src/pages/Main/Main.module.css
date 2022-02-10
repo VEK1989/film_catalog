@@ -1,0 +1,23 @@
+.links {
+  margin: 40px 0 40px 0;
+}
+
+.link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 21px;
+  color: #e0dbdb;
+  margin: 5px 70px 5px 5px;
+}
+
+.active {
+  color: #503131;
+  font-weight: bold;
+}
+
+.dark {
+  color: #ffffff;
+  font-weight: bold;
+}

@@ -1,16 +1,16 @@
-.header{
-	grid-area: header;
-	border-bottom: 1px solid rgba(224, 219, 219, 0.4);
+.header {
+  grid-area: header;
+  border-bottom: 1px solid rgba(224, 219, 219, 0.4);
 }
 
-.wrapper{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 25px 10px;
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 10px;
 }
 
-.header_leftSide{
-	display: flex;
-	align-items: center;
+.header_leftSide {
+  display: flex;
+  align-items: center;
 }
