@@ -1,0 +1,8 @@
+.loading {
+  width: 250px;
+  height: 380px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
