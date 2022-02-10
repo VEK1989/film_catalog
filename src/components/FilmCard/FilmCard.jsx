@@ -1,13 +1,14 @@
-import style from "./Film.module.css";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+
 import altImg from "../../assets/images/altTitle.svg";
 import altImgDark from "../../assets/images/altPhotoDark.png";
 import loading from "../../assets/images/loading.gif";
-import { NavLink } from "react-router-dom";
 import star from "../../assets/images/star.png";
 import { LikeButton } from "../LikeButton/LikeButton";
-import { useSelector } from "react-redux";
+import style from "./FilmCard.module.css";
 
-export const Film = ({
+const FilmCard = ({
   isHovered,
   unHovered,
   poster_path,
@@ -98,3 +99,5 @@ export const Film = ({
     </article>
   );
 };
+
+export default FilmCard;

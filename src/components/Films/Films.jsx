@@ -1,6 +1,6 @@
 import style from "./Films.module.css";
 import { Pagination } from "../Pagination/Pagination";
-import { Film } from "../Film/Film";
+import Film from "../FilmCard/FilmCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { filmActionCreator } from "../../store/action-creators/filmActionCreators";
