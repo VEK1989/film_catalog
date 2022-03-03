@@ -40,7 +40,6 @@ export const filmActionCreator = {
       try {
         dispatch(filmActionCreator.setIsLoading(true));
         const { data } = await FilmsDataApi.getFilmData(filmId, name);
-        console.log(data);
         dispatch(filmActionCreator.setProperties(data));
       } catch (e: any) {
         dispatch(filmActionCreator.setError(e.response.data.errors));
@@ -55,11 +54,9 @@ export const filmActionCreator = {
       try {
         dispatch(filmActionCreator.setIsLoading(true));
         const { data } = await FilmsDataApi.getPopularFilms(page, filter, name);
-        console.log(data);
         dispatch(filmActionCreator.setItems(data.results));
         dispatch(filmActionCreator.setTotalResults(data.total_results));
       } catch (e: any) {
-        console.log("error");
         dispatch(filmActionCreator.setError(e.response?.data?.errors));
       } finally {
         dispatch(filmActionCreator.setIsLoading(false));
