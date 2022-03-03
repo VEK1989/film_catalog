@@ -3,10 +3,10 @@ import { Pagination } from "../Pagination/Pagination";
 import Film from "../FilmCard/FilmCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { filmActionCreator } from "../../store/action-creators/filmActionCreators";
+import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
 
 export const TvSeries = ({ theme }) => {
-  const { hover, items, pageSize, totalResults, page } = useSelector(
+  const { items, pageSize, totalResults, page } = useSelector(
     (state) => state.films
   );
   const { searchName, filter } = useSelector((state) => state.search);
@@ -26,15 +26,6 @@ export const TvSeries = ({ theme }) => {
     dispatch(filmActionCreator.getAllGenres("tv"));
   }, [dispatch]);
 
-  const isHovered = (selected, id) => {
-    dispatch(filmActionCreator.setHover(selected));
-    dispatch(filmActionCreator.setFilmId(id));
-  };
-
-  const unHovered = () => {
-    dispatch(filmActionCreator.setHover(false));
-  };
-
   const setNewPage = (p) => {
     dispatch(filmActionCreator.setPage(p));
   };
@@ -45,13 +36,10 @@ export const TvSeries = ({ theme }) => {
         {items.map((item) => {
           return (
             <Film
-              isHovered={() => isHovered(item, item.id)}
-              unHovered={() => unHovered()}
               key={item.id}
               poster_path={item.poster_path}
               title={item.name}
               id={item.id}
-              hover={hover}
               release_date={item.first_air_date}
               vote_average={item.vote_average}
               genres={item.genre_ids}

@@ -7,18 +7,18 @@ import { StarsRating } from "../../components/StarsRating/StarsRating";
 import { LikeButton } from "../../components/LikeButton/LikeButton";
 import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { filmActionCreator } from "../../store/action-creators/filmActionCreators";
+import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
 import { useEffect } from "react";
 
 export const FilmDetails = ({ filmId, name, theme }) => {
   const { properties, isLoading } = useSelector((state) => state.films);
   const dispatch = useDispatch();
 
+  console.log(properties);
+
   useEffect(() => {
     dispatch(filmActionCreator.getFilmsProperty(filmId, name));
   }, [dispatch, filmId, name]);
-
-  console.log(properties);
 
   return (
     <section>
@@ -63,7 +63,7 @@ export const FilmDetails = ({ filmId, name, theme }) => {
             <StarsRating rating={properties.vote_average} id={properties.id} />
           </div>
           <aside className={style.props}>
-            {properties.genres > 0 ? (
+            {properties.genres.length > 0 ? (
               <span className={style.props_name}>Genre:</span>
             ) : null}
             <span className={style.props_name}>Year:</span>

@@ -3,7 +3,7 @@ import { Pagination } from "../Pagination/Pagination";
 import Film from "../FilmCard/FilmCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { filmActionCreator } from "../../store/action-creators/filmActionCreators";
+import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
 
 export const Films = ({ theme }) => {
   const { items, pageSize, totalResults, page } = useSelector(

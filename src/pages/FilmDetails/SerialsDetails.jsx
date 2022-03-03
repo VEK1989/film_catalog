@@ -7,7 +7,7 @@ import { StarsRating } from "../../components/StarsRating/StarsRating";
 import { LikeButton } from "../../components/LikeButton/LikeButton";
 import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { filmActionCreator } from "../../store/action-creators/filmActionCreators";
+import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
 import { useEffect } from "react";
 
 export const SerialsDetails = ({ filmId, name, theme }) => {
