@@ -6,14 +6,12 @@ import FilmPoster from "../FilmPoster/FilmPoster";
 import star from "../../assets/images/star.png";
 import { LikeButton } from "../LikeButton/LikeButton";
 import style from "./FilmCard.module.css";
+import { useState } from "react";
 
 const FilmCard = ({
-  isHovered,
-  unHovered,
   poster_path,
   title,
   id,
-  hover,
   release_date,
   vote_average,
   genres,
@@ -21,6 +19,7 @@ const FilmCard = ({
   name,
 }) => {
   const { genresId, isLoading } = useSelector((state) => state.films);
+  const [isHover, setIsHover] = useState(false);
 
   const genre = genresId.filter((n) => {
     return genres.indexOf(n.id) > -1;
@@ -31,9 +30,12 @@ const FilmCard = ({
   }
 
   return (
-    <article onMouseEnter={isHovered} onMouseLeave={unHovered}>
+    <article
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <div className={style.filmItem}>
-        {hover.id === id ? (
+        {isHover ? (
           <NavLink to={`/details/${name}/${id}`} className={style.link}>
             <div className={style.filmInfo}>
               <LikeButton id={id} className={style.like} />

@@ -2,7 +2,6 @@ import { filmActionTypes } from "../actionTypes/filmActionTypes";
 
 const initialState = {
   filmId: [508943],
-  hover: false,
   items: [],
   pageSize: 20,
   totalResults: 100,
@@ -44,12 +43,6 @@ const filmsReduser = (state = initialState, action) => {
       return {
         ...state,
         filmId: action.id,
-      };
-
-    case filmActionTypes.SET_HOVER:
-      return {
-        ...state,
-        hover: action.id,
       };
 
     case filmActionTypes.SET_ITEMS:

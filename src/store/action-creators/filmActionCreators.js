@@ -2,7 +2,6 @@ import { filmActionTypes } from "../actionTypes/filmActionTypes";
 import { FilmsDataApi } from "../../api/api";
 
 export const filmActionCreator = {
-  setHover: (id) => ({ type: filmActionTypes.SET_HOVER, id }),
   setItems: (items) => ({ type: filmActionTypes.SET_ITEMS, items }),
   setPage: (page) => ({ type: filmActionTypes.SET_PAGE, page }),
   setTotalResults: (totalResults) => ({
