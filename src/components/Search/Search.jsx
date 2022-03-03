@@ -1,7 +1,7 @@
 import style from "./Search.module.css";
 import searchImg from "../../assets/images/header-search.png";
 import { Formik, Form, Field } from "formik";
-import { searchActionCreators } from "../../store/action-creators/searchActionCreators";
+import { searchActionCreators } from "../../store/action-creators/searchActionCreators.ts";
 import { useDispatch } from "react-redux";
 
 export const Search = () => {
