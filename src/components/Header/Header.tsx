@@ -4,7 +4,7 @@ import iconDark from "../../assets/images/logoDark.png";
 import { Search } from "../Search/Search";
 import { Toggle } from "../ThemeToggle/Toggler";
 
-export const Header = ({ theme, toggleTheme }) => {
+export const Header = ({ theme, toggleTheme }: HeaderProps) => {
   return (
     <header className={style.header}>
       <div className={style.wrapper}>
@@ -22,3 +22,8 @@ export const Header = ({ theme, toggleTheme }) => {
     </header>
   );
 };
+
+interface HeaderProps {
+  theme: string;
+  toggleTheme: () => void;
+}

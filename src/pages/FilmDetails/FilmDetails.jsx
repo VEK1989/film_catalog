@@ -14,8 +14,6 @@ export const FilmDetails = ({ filmId, name, theme }) => {
   const { properties, isLoading } = useSelector((state) => state.films);
   const dispatch = useDispatch();
 
-  console.log(properties);
-
   useEffect(() => {
     dispatch(filmActionCreator.getFilmsProperty(filmId, name));
   }, [dispatch, filmId, name]);
@@ -63,14 +61,14 @@ export const FilmDetails = ({ filmId, name, theme }) => {
             <StarsRating rating={properties.vote_average} id={properties.id} />
           </div>
           <aside className={style.props}>
-            {properties.genres.length > 0 ? (
+            {properties.genres?.length > 0 ? (
               <span className={style.props_name}>Genre:</span>
             ) : null}
             <span className={style.props_name}>Year:</span>
             <span className={style.props_name}>Running time:</span>
           </aside>
           <aside className={style.value}>
-            {properties.genres.length > 0 ? (
+            {properties.genres?.length > 0 ? (
               <span className={style.value_name}>
                 {properties.genres.length > 1 ? (
                   <span>

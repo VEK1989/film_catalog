@@ -4,7 +4,7 @@ import NoPosterCard from "../NoPosterCard/NoPosterCard";
 
 const FilmPoster: React.FC<IProps> = ({ poster_path, theme }) => {
   if (!poster_path) {
-    <NoPosterCard theme={theme} />;
+    return <NoPosterCard theme={theme} />;
   }
 
   return (
