@@ -3,11 +3,8 @@ import { FilmPropertiesType } from "../store/types/filmPropertiesType";
 import { GenresType } from "../store/types/genresType";
 import { ItemType } from "../store/types/ItemType";
 
-const apiKey = "808cfd2d723af708f7da7e18f3b10d1e";
-const langEng = "en-US";
-
 const instans = axios.create({
-  baseURL: "https://api.themoviedb.org/3/",
+  baseURL: process.env.BASE_URL,
 });
 
 export class FilmsDataApi {
@@ -17,7 +14,7 @@ export class FilmsDataApi {
     name: string
   ): Promise<AxiosResponse<ItemResultType>> {
     const response = await instans.get<ItemResultType>(
-      `${name}/${value}?api_key=${apiKey}&language=${langEng}&page=${page}`
+      `${name}/${value}?api_key=${process.env.API_KEY}&language=${process.env.LANG_ENG}&page=${page}`
     );
     return response;
   }
@@ -27,7 +24,7 @@ export class FilmsDataApi {
     name: string
   ): Promise<AxiosResponse<FilmPropertiesType>> {
     const response = await instans.get<FilmPropertiesType>(
-      `${name}/${filmId}?api_key=${apiKey}&language=${langEng}`
+      `${name}/${filmId}?api_key=${process.env.API_KEY}&language=${process.env.LANG_ENG}`
     );
     return response;
   }
@@ -38,7 +35,7 @@ export class FilmsDataApi {
     name: string
   ): Promise<AxiosResponse<ItemResultType>> {
     const response = await instans.get<ItemResultType>(
-      `search/${name}?api_key=${apiKey}&query=${query}&page=${page}`
+      `search/${name}?api_key=${process.env.API_KEY}&query=${query}&page=${page}`
     );
     return response;
   }
@@ -47,7 +44,7 @@ export class FilmsDataApi {
     name: string
   ): Promise<AxiosResponse<GenresResponseType>> {
     const response = await instans.get<GenresResponseType>(
-      `genre/${name}/list?api_key=${apiKey}&language=${langEng}`
+      `genre/${name}/list?api_key=${process.env.API_KEY}&language=${process.env.LANG_ENG}`
     );
     return response;
   }
