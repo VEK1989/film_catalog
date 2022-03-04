@@ -2,9 +2,9 @@ import React from "react";
 
 import NoPosterCard from "../NoPosterCard/NoPosterCard";
 
-const FilmPoster: React.FC<IProps> = ({ poster_path, theme }) => {
+const FilmPoster: React.FC<IProps> = ({ poster_path }) => {
   if (!poster_path) {
-    return <NoPosterCard theme={theme} />;
+    return <NoPosterCard />;
   }
 
   return (
@@ -21,5 +21,4 @@ export default FilmPoster;
 
 interface IProps {
   poster_path: string;
-  theme: string;
 }

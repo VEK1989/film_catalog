@@ -3,8 +3,12 @@ import icon from "../../assets/images/header-icon.svg";
 import iconDark from "../../assets/images/logoDark.png";
 import { Search } from "../Search/Search";
 import { Toggle } from "../ThemeToggle/Toggler";
+import { useContext } from "react";
+import { Context } from "../Context/Context";
 
-export const Header = ({ theme, toggleTheme }: HeaderProps) => {
+export const Header = () => {
+  const { theme } = useContext(Context);
+
   return (
     <header className={style.header}>
       <div className={style.wrapper}>
@@ -17,13 +21,8 @@ export const Header = ({ theme, toggleTheme }: HeaderProps) => {
           />
           <Search />
         </figure>
-        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        <Toggle />
       </div>
     </header>
   );
 };
-
-interface HeaderProps {
-  theme: string;
-  toggleTheme: () => void;
-}

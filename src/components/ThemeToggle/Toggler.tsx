@@ -1,7 +1,11 @@
 import style from "./Toggler.module.css";
 import cn from "classnames";
+import { useContext } from "react";
+import { Context } from "../Context/Context";
 
-export const Toggle = ({ theme, toggleTheme }) => {
+export const Toggle = () => {
+  const { theme, themeToggler } = useContext(Context);
+
   return (
     <div className={style.switch}>
       <span>Dark theme</span>
@@ -9,7 +13,7 @@ export const Toggle = ({ theme, toggleTheme }) => {
         className={cn(style.switch_btn, {
           [style.switch_on]: theme === "dark",
         })}
-        onClick={toggleTheme}
+        onClick={themeToggler}
       ></div>
     </div>
   );

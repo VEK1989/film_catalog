@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Main.module.css";
 import { Route, NavLink } from "react-router-dom";
 import { Films } from "../../components/Films/Films";
 import { TvSeries } from "../../components/TV_series/TvSeries";
 import cn from "classnames";
+import { Context } from "../../components/Context/Context";
 
-export const Main = ({ theme }) => {
+export const Main = () => {
+  const { theme } = useContext(Context);
   return (
     <div>
       <nav className={style.links}>
@@ -25,7 +27,7 @@ export const Main = ({ theme }) => {
         </NavLink>
       </nav>
       <main>
-        <Route path="/films" render={() => <Films theme={theme} />} />
+        <Route path="/films" render={() => <Films />} />
         <Route path="/tv_series" render={() => <TvSeries />} />
       </main>
     </div>

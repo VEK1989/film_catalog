@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import altImg from "../../assets/images/altTitle.svg";
 import altImgDark from "../../assets/images/altPhotoDark.png";
 import style from "./NoPosterCard.module.css";
+import { Context } from "../Context/Context";
 
-const NoPosterCard: React.FC<IProps> = ({ theme }) => {
+const NoPosterCard: React.FC = () => {
+  const { theme } = useContext(Context);
   return (
     <div className={style.fuckYou}>
       <div>
@@ -21,7 +23,3 @@ const NoPosterCard: React.FC<IProps> = ({ theme }) => {
 };
 
 export default NoPosterCard;
-
-interface IProps {
-  theme: string;
-}

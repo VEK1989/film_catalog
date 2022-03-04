@@ -15,7 +15,6 @@ const FilmCard = ({
   release_date,
   vote_average,
   genres,
-  theme,
   name,
 }) => {
   const { genresId, isLoading } = useSelector((state) => state.films);
@@ -62,7 +61,7 @@ const FilmCard = ({
             </div>
           </NavLink>
         ) : (
-          <FilmPoster theme={theme} poster_path={poster_path} />
+          <FilmPoster poster_path={poster_path} />
         )}
         <figcaption className={style.title}>
           {title ?? "Name is not found"}

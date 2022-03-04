@@ -7,12 +7,14 @@ import { LikeButton } from "../../components/LikeButton/LikeButton";
 import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Loading from "../../components/Loading/Loading";
+import { Context } from "../../components/Context/Context";
 
-export const FilmDetails = ({ filmId, name, theme }) => {
+export const FilmDetails = ({ filmId, name }) => {
   const { properties, isLoading } = useSelector((state) => state.films);
   const dispatch = useDispatch();
+  const { theme } = useContext(Context);
   useEffect(() => {
     dispatch(filmActionCreator.getFilmsProperty(filmId, name));
   }, [dispatch, filmId, name]);

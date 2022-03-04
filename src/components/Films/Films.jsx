@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
 
-export const Films = ({ theme }) => {
+export const Films = () => {
   const { items, pageSize, totalResults, page } = useSelector(
     (state) => state.films
   );
@@ -43,7 +43,6 @@ export const Films = ({ theme }) => {
               release_date={item.release_date}
               vote_average={item.vote_average}
               genres={item.genre_ids}
-              theme={theme}
               name={name}
             />
           );
