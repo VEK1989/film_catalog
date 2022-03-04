@@ -1,6 +1,6 @@
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Header } from "./components/Header/Header.tsx";
+import { Header } from "./components/Header/Header";
 import { Main } from "./pages/Main/Main";
 import FilmDetailsContainer from "./pages/FilmDetails/FilmDetailsContainer";
 import { useDarkMode } from "./hooks/useDarkMode";

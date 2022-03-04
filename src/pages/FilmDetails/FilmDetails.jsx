@@ -5,14 +5,15 @@ import altImgDark from "../../assets/images/altPhotoDark.png";
 import { StarsRating } from "../../components/StarsRating/StarsRating";
 import { LikeButton } from "../../components/LikeButton/LikeButton";
 import cn from "classnames";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
 import { useContext, useEffect } from "react";
 import Loading from "../../components/Loading/Loading";
 import { Context } from "../../components/Context/Context";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 
 export const FilmDetails = ({ filmId, name }) => {
-  const { properties, isLoading } = useSelector((state) => state.films);
+  const { properties, isLoading } = useTypedSelector((state) => state.films);
   const dispatch = useDispatch();
   const { theme } = useContext(Context);
   useEffect(() => {

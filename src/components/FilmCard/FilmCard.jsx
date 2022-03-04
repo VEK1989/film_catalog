@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
@@ -7,6 +6,7 @@ import star from "../../assets/images/star.png";
 import { LikeButton } from "../LikeButton/LikeButton";
 import style from "./FilmCard.module.css";
 import { useState } from "react";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 
 const FilmCard = ({
   poster_path,
@@ -17,7 +17,7 @@ const FilmCard = ({
   genres,
   name,
 }) => {
-  const { genresId, isLoading } = useSelector((state) => state.films);
+  const { genresId, isLoading } = useTypedSelector((state) => state.films);
   const [isHover, setIsHover] = useState(false);
 
   const genre = genresId.filter((n) => {

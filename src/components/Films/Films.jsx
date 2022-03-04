@@ -1,15 +1,16 @@
 import style from "./Films.module.css";
 import { Pagination } from "../Pagination/Pagination";
 import Film from "../FilmCard/FilmCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { filmActionCreator } from "../../store/action-creators/filmActionCreators.ts";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 
 export const Films = () => {
-  const { items, pageSize, totalResults, page } = useSelector(
+  const { items, pageSize, totalResults, page } = useTypedSelector(
     (state) => state.films
   );
-  const { searchName, filter } = useSelector((state) => state.search);
+  const { searchName, filter } = useTypedSelector((state) => state.search);
   const name = "movie";
 
   const dispatch = useDispatch();

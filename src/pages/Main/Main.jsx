@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import style from "./Main.module.css";
 import { Route, NavLink } from "react-router-dom";
 import { Films } from "../../components/Films/Films";
@@ -8,23 +8,33 @@ import { Context } from "../../components/Context/Context";
 
 export const Main = () => {
   const { theme } = useContext(Context);
+  const routes = [
+    {
+      link: "/films",
+      name: "Films",
+    },
+    {
+      link: "/tv_series",
+      name: "TV series",
+    },
+  ];
+
   return (
     <div>
       <nav className={style.links}>
-        <NavLink
-          to="/films"
-          activeClassName={cn(style.active, { [style.dark]: theme === "dark" })}
-          className={style.link}
-        >
-          Films
-        </NavLink>
-        <NavLink
-          to="/tv_series"
-          activeClassName={cn(style.active, { [style.dark]: theme === "dark" })}
-          className={style.link}
-        >
-          TV series
-        </NavLink>
+        {routes.map((route) => {
+          return (
+            <NavLink
+              to={route.link}
+              activeClassName={cn(style.active, {
+                [style.dark]: theme === "dark",
+              })}
+              className={style.link}
+            >
+              {route.name}
+            </NavLink>
+          );
+        })}
       </nav>
       <main>
         <Route path="/films" render={() => <Films />} />
